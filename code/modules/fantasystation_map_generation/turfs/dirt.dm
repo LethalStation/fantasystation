@@ -18,9 +18,9 @@
 	planetary_atmos = TRUE
 	baseturfs = /turf/open/misc/regular_soil
 
-	footstep = FOOTSTEP_SAND
-	barefootstep = FOOTSTEP_SAND
-	clawfootstep = FOOTSTEP_SAND
+	footstep = FOOTSTEP_GRASS
+	barefootstep = FOOTSTEP_GRASS
+	clawfootstep = FOOTSTEP_GRASS
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 
 /turf/open/misc/fantasy_grass/Initialize(mapload)
