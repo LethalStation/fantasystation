@@ -6,7 +6,6 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 	var/turf/open/deep_turf = /turf/open/water/vintage/deep
 
 	var/list/turfs_to_shallow = list()
-	var/list/turfs_to_shallow = list()
 	var/list/turfs_to_deep = list()
 
 	var/list/river_nodes_south = list()
