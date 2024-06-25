@@ -110,6 +110,8 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 	var/list/diagonal_turfs = list()
 	var/logged_turf_type
 	for(var/turf/canidate as anything in RANGE_TURFS(1, src) - src)
+		if(istype(canidate, src.type))
+			continue
 		if(!canidate || (canidate.density && !ismineralturf(canidate)) || isindestructiblefloor(canidate))
 			continue
 
@@ -127,8 +129,6 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 			diagonal_turfs += canidate
 
 	for(var/turf/cardinal_canidate as anything in cardinal_turfs) //cardinal turfs are always changed but don't always spread
-		if(istype(cardinal_canidate, src.type))
-			continue
 		// NOTE: WE ARE SKIPPING CHANGETURF HERE
 		// The calls in this proc only serve to provide a satisfactory (if it's not ALREADY this) check. They do not actually call changeturf
 		// This is safe because this proc can only be run during mapload, and nothing has initialized by now so there's nothing to inherit or delete
@@ -138,8 +138,6 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 			cardinal_canidate.Spread(probability - prob_loss, prob_loss, whitelisted_area)
 
 	for(var/turf/diagonal_canidate as anything in diagonal_turfs) //diagonal turfs only sometimes change, but will always spread if changed
-		if(istype(diagonal_canidate, src.type))
-			continue
 		// Important NOTE: SEE ABOVE
 		if(!istype(diagonal_canidate, logged_turf_type) && prob(probability) && diagonal_canidate.ChangeTurf(type, baseturfs, CHANGETURF_SKIP))
 			if(baseturfs)
