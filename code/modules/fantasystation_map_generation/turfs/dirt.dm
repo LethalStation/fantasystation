@@ -1,8 +1,39 @@
+/turf/open/misc/fantasy_grass
+	name = "grass"
+	desc = "Dense grass, you can't even see the soil beneath it. This stuff has probably been growing here longer than your history has known, \
+		though thankfully it seems to grow relatively short."
+	gender = PLURAL
+
+	icon = 'icons/turf/fantasystation/grass.dmi'
+	icon_state = "grass"
+	base_icon_state = "grass"
+	tiled_dirt = FALSE
+
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_FANTASY_GRASS
+	canSmoothWith = SGROUP_FANTASY_GRASS + SMOOTH_GROUP_CLOSED_TURFS
+	layer = HIGH_TURF_LAYER
+
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	planetary_atmos = TRUE
+	baseturfs = /turf/open/misc/regular_soil
+
+	footstep = FOOTSTEP_SAND
+	barefootstep = FOOTSTEP_SAND
+	clawfootstep = FOOTSTEP_SAND
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+
+/turf/open/misc/fantasy_grass/Initialize(mapload)
+	. = ..()
+	if(smoothing_flags)
+		var/matrix/translation = new
+		translation.Translate(-8, -8)
+		transform = translation
+
 /turf/open/misc/desert_sand
 	name = "sand"
-	desc = "Dark desert sand, the most common type of ground around. Completely devoid of water, \
-		and prone to blowing up into large dust storms with devastating power. It's coarse and it \
-		gets everywhere."
+	desc = "Dark desert sand, the most common type of ground around if you live somewhere dry. Completely devoid of water, \
+		and prone to blowing up into large dust storms with devastating power. It's coarse and it gets everywhere."
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/sand.dmi'
@@ -11,8 +42,8 @@
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_PINK_NODOTS
-	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_PINK_NODOTS + SMOOTH_GROUP_CLOSED_TURFS
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_DESERT_SAND
+	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SMOOTH_GROUP_CLOSED_TURFS
 	layer = HIGH_TURF_LAYER
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -44,8 +75,8 @@
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_VIOLET_NODOTS
-	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_PINK_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_VIOLET_NODOTS + SMOOTH_GROUP_CLOSED_TURFS
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_CRACKED_EARTH
+	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SMOOTH_GROUP_CLOSED_TURFS
 	layer = HIGH_TURF_LAYER - 0.001
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -67,8 +98,8 @@
 
 /turf/open/misc/regular_soil
 	name = "rocky soil"
-	desc = "Some pretty average, and remarkably hydrated looking soil that doesn't look like it will try to kill you \
-		when the wind picks up again."
+	desc = "Soil filled with larger stones that likely does not reach down very far into the ground. As a result, this makes it a passable \
+		but less than optimal terrain for farming."
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/dirt.dmi'
@@ -77,8 +108,8 @@
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_PURPLE_NODOTS
-	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_PINK_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_VIOLET_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_PURPLE_NODOTS + SMOOTH_GROUP_CLOSED_TURFS
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_ROCKY_SOIL
+	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SMOOTH_GROUP_CLOSED_TURFS
 	layer = HIGH_TURF_LAYER - 0.002
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -100,9 +131,7 @@
 
 /turf/open/misc/muck_slop
 	name = "rich mud"
-	desc = "A rare sight in the vest deserts and wastelands, mud saturated with water. \
-		The basis of civilization in a place such as this, providing many of the basic needs such as \
-		shelter, or farming."
+	desc = "Mud, or if it's not mud right now, it was or will be recently. Likely found near water."
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/mud.dmi'
@@ -111,8 +140,8 @@
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_BLUE_NODOTS
-	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_PINK_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_VIOLET_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_PURPLE_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_BLUE_NODOTS + SMOOTH_GROUP_CLOSED_TURFS
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_FANTASY_DIRT
+	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SGROUP_FANTASY_DIRT + SMOOTH_GROUP_CLOSED_TURFS
 	layer = HIGH_TURF_LAYER - 0.003
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -146,8 +175,8 @@
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_CARPET_SIMPLE_NEON_CYAN_NODOTS
-	canSmoothWith = SMOOTH_GROUP_CARPET_SIMPLE_NEON_PINK_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_VIOLET_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_PURPLE_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_BLUE_NODOTS + SMOOTH_GROUP_CARPET_SIMPLE_NEON_CYAN_NODOTS + SMOOTH_GROUP_CLOSED_TURFS
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_FIRE_CLAY
+	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SGROUP_FANTASY_DIRT + SGROUP_FIRE_CLAY + SMOOTH_GROUP_CLOSED_TURFS
 	layer = HIGH_TURF_LAYER - 0.004
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS

@@ -1,4 +1,4 @@
-output_name = "sand"
+output_name = "grass"
 template = "bitmask/cardinal_32x32.toml"
 
 [icon_size]

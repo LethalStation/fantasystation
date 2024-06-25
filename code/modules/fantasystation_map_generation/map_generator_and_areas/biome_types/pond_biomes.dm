@@ -1,36 +1,36 @@
-/datum/biome/vintage/water_pond
-	open_turf_type = /turf/open/water/vintage
-	closed_turf_type = null
+/datum/biome/fantasy_water_pond
+	turf_type = /turf/open/water/vintage
 
-	weighted_flora_spawn_list = list()
-	weighted_feature_spawn_list = list(
+	flora_types = list()
+	feature_types = list(
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
 		/obj/effect/spawner/random/rock_and_roll/lots_of_them = 1,
 	)
+	fauna_types = list()
 
-	mob_spawn_chance = 0
-	flora_spawn_chance = 0
-	feature_spawn_chance = 10
+	flora_density = 0
+	feature_density = 10
+	fauna_density = 0
 
-/datum/biome/vintage/water_pond_surroundings
-	open_turf_type = /turf/open/misc/fire_clay
-	closed_turf_type = null
+/datum/biome/fantasy_water_pond_surroundings
+	turf_type = /turf/open/misc/fire_clay
 
-	weighted_flora_spawn_list = list()
-	weighted_feature_spawn_list = list()
+	flora_types = list()
+	feature_types = list()
+	fauna_types = list()
 
-	mob_spawn_chance = 0
-	flora_spawn_chance = 0
-	feature_spawn_chance = 0
+	flora_density = 0
+	feature_density = 0
+	fauna_density = 0
 
-/datum/biome/vintage/the_slop
-	open_turf_type = /turf/open/misc/muck_slop
-	closed_turf_type = null
+/datum/biome/fantasy_the_slop
+	turf_type = /turf/open/misc/muck_slop
 
-	weighted_flora_spawn_list = list()
-	weighted_feature_spawn_list = list()
+	flora_types = list()
+	feature_types = list()
+	fauna_types = list()
 
-	mob_spawn_chance = 0
-	flora_spawn_chance = 0
-	feature_spawn_chance = 0
+	flora_density = 0
+	feature_density = 0
+	fauna_density = 0
