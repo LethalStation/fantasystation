@@ -4069,6 +4069,7 @@
 #include "code\modules\fantasystation_map_generation\map_generator_and_areas\biome_types\dirt_biomes.dm"
 #include "code\modules\fantasystation_map_generation\map_generator_and_areas\biome_types\pond_biomes.dm"
 #include "code\modules\fantasystation_map_generation\random_resources\dunegrass.dm"
+#include "code\modules\fantasystation_map_generation\random_resources\regrowing_wild_plants.dm"
 #include "code\modules\fantasystation_map_generation\random_resources\rock_and_stone.dm"
 #include "code\modules\fantasystation_map_generation\random_resources\rocks_spawner.dm"
 #include "code\modules\fantasystation_map_generation\random_resources\trees.dm"
