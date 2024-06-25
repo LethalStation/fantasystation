@@ -85,5 +85,4 @@
 
 	var/message = "[name] finished in [(REALTIMEOFDAY - start_time)/10]s!"
 
-	add_startup_message(message)
 	log_world(message)
