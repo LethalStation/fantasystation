@@ -15,43 +15,41 @@ endmap
 
 # Production-level maps.
 
-map fantasyland
-	default
-endmap
-
 map birdshot
+	#default
 	maxplayers 66
-	disabled
+	votable
 endmap
 
 map deltastation
 	minplayers 50
-	disabled
+	votable
 endmap
 
 map icebox
 	minplayers 25
-	disabled
+	votable
 endmap
 
 map metastation
 	minplayers 25
-	disabled
+	#voteweight 0.5
+	votable
 endmap
 
 map northstar
 	minplayers 50
-	disabled
+	votable
 endmap
 
 map tramstation
 	minplayers 35
-	disabled
+	votable
 endmap
 
 map wawastation
+	votable
 	minplayers 40
-	disabled
 endmap
 
 # Debug-only maps.
