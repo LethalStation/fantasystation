@@ -1,3 +1,5 @@
+#define BIOME_RANDOM_SQUARE_DRIFT 1
+
 /datum/map_generator/cave_generator/fantasy_surface
 	initial_closed_chance = 0
 	perlin_zoom = 45
@@ -37,10 +39,7 @@
 	var/list/expanded_closed_turfs = src.closed_turf_types
 	var/list/expanded_open_turfs = src.open_turf_types
 
-	spawn_rivers_by_marker_id("west_river", 2, whitelist_area)
-	spawn_rivers_by_marker_id("east_river", 2, whitelist_area)
-	spawn_rivers_by_marker_id("north_river", 2, whitelist_area)
-	spawn_rivers_by_marker_id("south_river", 2, whitelist_area)
+	spawn_rivers_by_marker_id(2, /area/vintage)
 
 	for(var/turf/gen_turf as anything in turfs) //Go through all the turfs and generate them
 		if(!istype(gen_turf, /turf/open/genturf))
@@ -91,3 +90,5 @@
 	var/message = "[name] terrain generation finished in [(REALTIMEOFDAY - start_time)/10]s!"
 	to_chat(world, span_boldannounce("[message]"))
 	log_world(message)
+
+#undef BIOME_RANDOM_SQUARE_DRIFT
