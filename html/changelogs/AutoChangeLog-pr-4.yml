@@ -1,0 +1,4 @@
+author: "Paxilmaniac"
+delete-after: True
+changes:
+  - rscadd: "Adds a variety of new greenery to the different default worldgen biomes"
