@@ -22,7 +22,7 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 		waypoints.connected = TRUE
 		// Workaround around ChangeTurf that's safe because of when this proc is called
 		var/turf/cur_turf = get_turf(waypoints)
-		cur_turf = new turf_type(cur_turf)
+		cur_turf = new edge_turf(cur_turf)
 		var/turf/target_turf = get_turf(pick(river_nodes - waypoints))
 		if(!target_turf)
 			break
@@ -44,7 +44,6 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 				cur_dir = get_dir(cur_turf, target_turf)
 
 			cur_turf = get_step(cur_turf, cur_dir)
-			var/area/new_area = get_area(cur_turf)
 			turfs_to_mud += cur_turf
 
 	for(var/turf/turf_to_generate_mud in turfs_to_mud)
