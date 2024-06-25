@@ -4065,6 +4065,7 @@
 #include "code\modules\explorer_drone\exploration_events\trader.dm"
 #include "code\modules\fantasystation_map_generation\map_generator_and_areas\areas.dm"
 #include "code\modules\fantasystation_map_generation\map_generator_and_areas\biome_basetype.dm"
+#include "code\modules\fantasystation_map_generation\map_generator_and_areas\id_river_generator.dm"
 #include "code\modules\fantasystation_map_generation\map_generator_and_areas\surface_generator.dm"
 #include "code\modules\fantasystation_map_generation\map_generator_and_areas\biome_types\dirt_biomes.dm"
 #include "code\modules\fantasystation_map_generation\map_generator_and_areas\biome_types\pond_biomes.dm"
