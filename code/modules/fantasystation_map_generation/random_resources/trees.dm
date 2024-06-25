@@ -21,6 +21,8 @@
 	flora_flags = FLORA_HERBAL | FLORA_WOODEN
 	/// If this tree has a seethrough map
 	var/seethrough = TRUE
+	/// If this makes a stump when cut down
+	var/makes_stumps = TRUE
 
 /obj/structure/flora/fantasy_tree/Initialize(mapload)
 	. = ..()
@@ -33,8 +35,10 @@
 
 /obj/structure/flora/fantasy_tree/harvest(mob/living/user, product_amount_multiplier)
 	. = ..()
+	if(!makes_stumps)
+		return
 	var/turf/my_turf = get_turf(src)
-	playsound(my_turf, 'sound/effects/meteorimpact.ogg', 100 , FALSE, FALSE)
+	playsound(my_turf, SFX_TREE_CHOP, 100 , FALSE, FALSE)
 	var/obj/structure/flora/fantasy_tree/stump/new_stump = new(my_turf)
 	new_stump.name = "[name] stump"
 	new_stump.icon_state = "[icon_state]_stump"
@@ -55,6 +59,18 @@
 	..()
 	to_chat(user, span_notice("You manage to remove [src]."))
 	qdel(src)
+
+/obj/structure/flora/fantasy_tree/pet_bush
+	name = "bush"
+	desc = "A large bush."
+	icon = 'icons/obj/fantasystation_obj/tall_plants.dmi'
+	icon_state = "bush_1"
+	pixel_x = 0
+	harvest_amount_low = 2
+	harvest_amount_high = 5
+	harvest_message_low = "You manage to gather a few logs from the bush."
+	harvest_message_med = "You manage to gather some logs from the bush."
+	harvest_message_high = "You manage to get most of the wood from the bush."
 
 // Random icon versions of the above
 
@@ -78,6 +94,19 @@
 		"tree_1_stump",
 		"tree_2_stump",
 		"tree_3_stump",
+	)
+	icon_state = pick(random_states)
+	update_appearance()
+
+/obj/structure/flora/fantasy_tree/pet_bush/random_icon
+
+/obj/structure/flora/fantasy_tree/pet_bush/random_icon/Initialize(mapload)
+	. = ..()
+	var/list/random_states = list(
+		"bush_1",
+		"bush_2",
+		"bush_3",
+		"bush_4",
 	)
 	icon_state = pick(random_states)
 	update_appearance()
