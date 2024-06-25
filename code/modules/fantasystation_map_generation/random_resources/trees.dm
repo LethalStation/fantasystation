@@ -42,7 +42,7 @@
 /obj/structure/flora/fantasy_tree/stump
 	name = "stump"
 	desc = "This represents our promise to the elves, and the world itself. To cut down as many trees as possible."
-	icon_state = "tree_stump"
+	icon_state = "tree_1_stump"
 	density = FALSE
 	delete_on_harvest = TRUE
 	seethrough = FALSE

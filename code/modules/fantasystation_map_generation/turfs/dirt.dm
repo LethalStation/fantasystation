@@ -5,13 +5,13 @@
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/grass.dmi'
-	icon_state = "grass"
+	icon_state = "grass-255"
 	base_icon_state = "grass"
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_FANTASY_GRASS
-	canSmoothWith = SGROUP_FANTASY_GRASS + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SGROUP_FANTASY_GRASS
 	layer = HIGH_TURF_LAYER
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -37,13 +37,13 @@
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/sand.dmi'
-	icon_state = "sand"
+	icon_state = "sand-255"
 	base_icon_state = "sand"
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_DESERT_SAND
-	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SGROUP_DESERT_SAND + SGROUP_FANTASY_GRASS
 	layer = HIGH_TURF_LAYER
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -70,13 +70,13 @@
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/dry_dirt.dmi'
-	icon_state = "dry_dirt"
+	icon_state = "dry_dirt-255"
 	base_icon_state = "dry_dirt"
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_CRACKED_EARTH
-	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_FANTASY_GRASS
 	layer = HIGH_TURF_LAYER - 0.001
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -103,13 +103,13 @@
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/dirt.dmi'
-	icon_state = "dirt"
+	icon_state = "dirt-255"
 	base_icon_state = "dirt"
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_ROCKY_SOIL
-	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SGROUP_FANTASY_GRASS
 	layer = HIGH_TURF_LAYER - 0.002
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -135,13 +135,13 @@
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/mud.dmi'
-	icon_state = "mud"
+	icon_state = "mud-255"
 	base_icon_state = "mud"
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_FANTASY_DIRT
-	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SGROUP_FANTASY_DIRT + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SGROUP_FANTASY_DIRT + SGROUP_FANTASY_GRASS
 	layer = HIGH_TURF_LAYER - 0.003
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
@@ -170,13 +170,13 @@
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/clay.dmi'
-	icon_state = "clay"
+	icon_state = "clay-255"
 	base_icon_state = "clay"
 	tiled_dirt = FALSE
 
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_FIRE_CLAY
-	canSmoothWith = SGROUP_FANTASY_GRASS +SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SGROUP_FANTASY_DIRT + SGROUP_FIRE_CLAY + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SGROUP_DESERT_SAND + SGROUP_CRACKED_EARTH + SGROUP_ROCKY_SOIL + SGROUP_FANTASY_DIRT + SGROUP_FIRE_CLAY + SGROUP_FANTASY_GRASS
 	layer = HIGH_TURF_LAYER - 0.004
 
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
