@@ -2,12 +2,51 @@
 "a" = (
 /turf/open/genturf,
 /area/vintage/surface_generator)
+"b" = (
+/obj/effect/landmark/river_waypoint/fantasystation{
+	id_tag = "west_river"
+	},
+/obj/effect/landmark/river_waypoint/fantasystation{
+	id_tag = "east_river"
+	},
+/obj/effect/landmark/river_waypoint/fantasystation{
+	id_tag = "north_river"
+	},
+/obj/effect/landmark/river_waypoint/fantasystation{
+	id_tag = "south_river"
+	},
+/turf/open/genturf,
+/area/vintage/surface_generator)
 "i" = (
 /obj/effect/landmark/observer_start,
 /turf/open/genturf,
 /area/vintage/surface_generator)
+"p" = (
+/obj/effect/landmark/river_waypoint/fantasystation{
+	id_tag = "west_river"
+	},
+/turf/open/genturf,
+/area/vintage/surface_generator)
+"t" = (
+/obj/effect/landmark/river_waypoint/fantasystation{
+	id_tag = "north_river"
+	},
+/turf/open/genturf,
+/area/vintage/surface_generator)
 "y" = (
 /obj/effect/landmark/start,
+/turf/open/genturf,
+/area/vintage/surface_generator)
+"F" = (
+/obj/effect/landmark/river_waypoint/fantasystation{
+	id_tag = "south_river"
+	},
+/turf/open/genturf,
+/area/vintage/surface_generator)
+"O" = (
+/obj/effect/landmark/river_waypoint/fantasystation{
+	id_tag = "east_river"
+	},
 /turf/open/genturf,
 /area/vintage/surface_generator)
 
@@ -260,7 +299,7 @@ a
 a
 a
 a
-a
+p
 a
 a
 a
@@ -47364,7 +47403,7 @@ a
 a
 a
 a
-a
+p
 a
 a
 a
@@ -88324,7 +88363,7 @@ a
 a
 a
 a
-a
+p
 a
 a
 a
@@ -124850,7 +124889,7 @@ a
 a
 a
 a
-a
+F
 a
 a
 a
@@ -125964,6 +126003,7 @@ a
 a
 "}
 (247,1,1) = {"
+t
 a
 a
 a
@@ -126118,8 +126158,7 @@ a
 a
 a
 a
-a
-a
+t
 a
 a
 a
@@ -126215,6 +126254,7 @@ a
 a
 a
 a
+b
 a
 a
 a
@@ -126472,8 +126512,7 @@ a
 a
 a
 a
-a
-a
+F
 "}
 (248,1,1) = {"
 a
@@ -126544,8 +126583,10 @@ a
 a
 a
 a
+t
 a
 a
+t
 a
 a
 a
@@ -126809,9 +126850,7 @@ a
 a
 a
 a
-a
-a
-a
+F
 a
 a
 a
@@ -174341,7 +174380,7 @@ a
 a
 a
 a
-a
+O
 a
 a
 a
@@ -222980,7 +223019,7 @@ a
 a
 a
 a
-a
+O
 a
 a
 a
@@ -260868,7 +260907,7 @@ a
 a
 a
 a
-a
+O
 a
 a
 a
