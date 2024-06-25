@@ -47,17 +47,17 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 			turfs_to_mud += cur_turf
 
 	for(var/turf/turf_to_generate_mud in turfs_to_mud)
-		var/turf/mud_turf = new edge_turf(cur_turf)
+		var/turf/mud_turf = new edge_turf(turf_to_generate_mud)
 		turfs_to_shallow += mud_turf
 		mud_turf.Spread(40, 5, whitelist_area)
 
 	for(var/turf/turf_to_generate_shallow in turfs_to_shallow)
-		var/turf/river_turf = new shallow_turf(cur_turf)
+		var/turf/river_turf = new shallow_turf(turf_to_generate_shallow)
 		turfs_to_deep += river_turf
 		river_turf.Spread(30, 5, whitelist_area)
 
 	for(var/turf/turf_to_generate_deep in turfs_to_deep)
-		var/turf/deep_river_turf = new deep_turf(cur_turf)
+		var/turf/deep_river_turf = new deep_turf(turf_to_generate_deep)
 		deep_river_turf.Spread(20, 5, whitelist_area)
 
 	for(var/waypoints_spawned in river_nodes)
