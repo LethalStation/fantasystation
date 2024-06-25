@@ -13,12 +13,12 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 	var/list/river_nodes_east = list()
 
 	for(var/obj/effect/landmark/river_waypoint/fantasystation/river_node_east in GLOB.tagged_river_nodes)
-		if(river_node.id_tag == "east_river")
-			river_nodes_east += river_node
+		if(river_node_east.id_tag == "east_river")
+			river_nodes_east += river_node_east
 
 	for(var/obj/effect/landmark/river_waypoint/fantasystation/river_node_south in GLOB.tagged_river_nodes)
-		if(river_node.id_tag == "south_river")
-			river_nodes_south += river_node
+		if(river_node_south.id_tag == "south_river")
+			river_nodes_south += river_node_south
 
 	for(var/obj/effect/landmark/river_waypoint/waypoints as anything in river_nodes_south)
 		if (waypoints.z != target_z || waypoints.connected)
@@ -94,7 +94,10 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 		var/turf/deep_river_turf = new deep_turf(turf_to_generate_deep)
 		deep_river_turf.Spread(10, 5, whitelist_area)
 
-	for(var/waypoints_spawned in river_nodes)
+	for(var/waypoints_spawned in river_nodes_east)
+		qdel(waypoints_spawned)
+
+	for(var/waypoints_spawned in river_nodes_south)
 		qdel(waypoints_spawned)
 
 /obj/effect/landmark/river_waypoint/fantasystation
