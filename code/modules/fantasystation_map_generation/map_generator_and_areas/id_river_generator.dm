@@ -91,9 +91,15 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 		deep_river_turf.spread_better(10, 5, whitelist_area)
 
 	for(var/waypoints_spawned in river_nodes_east)
+		for(var/turf/turf_near in range(1, waypoints_spawned))
+			if(!istype(turf_near, /turf/open/water/vintage/deep))
+				new /turf/open/water/vintage/deep(turf_near)
 		qdel(waypoints_spawned)
 
 	for(var/waypoints_spawned in river_nodes_south)
+		for(var/turf/turf_near in range(1, waypoints_spawned))
+			if(!istype(turf_near, /turf/open/water/vintage/deep))
+				new /turf/open/water/vintage/deep(turf_near)
 		qdel(waypoints_spawned)
 
 /obj/effect/landmark/river_waypoint/fantasystation
