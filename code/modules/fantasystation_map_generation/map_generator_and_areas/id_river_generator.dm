@@ -115,6 +115,10 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 	. = ..()
 	GLOB.tagged_river_nodes += src
 
+/obj/effect/landmark/river_waypoint/fantasystation/Destroy()
+	GLOB.tagged_river_nodes -= src
+	return ..()
+
 /turf/proc/spread_better(probability = 30, prob_loss = 25, whitelisted_area)
 	if(probability <= 0)
 		return
