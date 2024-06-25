@@ -130,7 +130,7 @@
 		transform = translation
 
 /turf/open/misc/muck_slop
-	name = "rich mud"
+	name = "mud"
 	desc = "Mud, or if it's not mud right now, it was or will be recently. Likely found near water."
 	gender = PLURAL
 
