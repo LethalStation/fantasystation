@@ -1,7 +1,10 @@
 /datum/biome/fantasy_regular_soil
 	turf_type = /turf/open/misc/regular_soil
 
-	flora_types = list()
+	flora_types = list(
+		/obj/structure/flora/fantasy_tree/stump/random_icon = 1,
+		/obj/structure/flora/fantasy_tree/random_icon = 3,
+	)
 	feature_types = list(
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
@@ -9,14 +12,17 @@
 	)
 	fauna_types = list()
 
-	flora_density = 0
+	flora_density = 1
 	feature_density = 5
 	fauna_density = 0
 
 /datum/biome/fantasy_grassy
 	turf_type = /turf/open/misc/fantasy_grass
 
-	flora_types = list()
+	flora_types = list(
+		/obj/structure/flora/fantasy_tree/stump/random_icon = 1,
+		/obj/structure/flora/fantasy_tree/random_icon = 4,
+	)
 	feature_types = list(
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
@@ -24,7 +30,7 @@
 	)
 	fauna_types = list()
 
-	flora_density = 0
+	flora_density = 20
 	feature_density = 5
 	fauna_density = 0
 
