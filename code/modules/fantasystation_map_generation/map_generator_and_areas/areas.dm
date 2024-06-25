@@ -4,7 +4,7 @@
 	icon_state = "mining"
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
-	area_flags = UNIQUE_AREA | FLORA_ALLOWED
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED
 	sound_environment = SOUND_AREA_ICEMOON
 	ambient_buzz = null
 	always_unpowered = TRUE
@@ -17,8 +17,6 @@
 /area/vintage/surface_generator
 	name = "Surface"
 	map_generator = /datum/map_generator/cave_generator/fantasy_surface
-	area_has_base_lighting = TRUE
-	base_lighting_alpha = 255
 
 /area/vintage/caves
 	name = "Underground"
