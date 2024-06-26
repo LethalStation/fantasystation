@@ -33,7 +33,7 @@
 	if(isliving(arrived))
 		to_chat(arrived, span_userdanger("The fierce currents wash you away!"))
 	playsound(src, 'sound/effects/submerge.ogg', 50, TRUE)
-	arrived.throw_at(throw_target, 2, 2)
+	arrived.throw_at(throw_target, 1, 2)
 	arrived.forceMove(old_loc) // Safety measure (DIAGONAL MOVEMENT!!!)
 
 /turf/open/water/vintage/swamp
