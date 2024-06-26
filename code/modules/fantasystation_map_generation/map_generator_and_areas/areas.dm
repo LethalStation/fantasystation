@@ -15,10 +15,14 @@
 	ambientsounds = list()
 
 /area/vintage/surface_generator
-	name = "Surface"
+	name = "Surface Forest"
 	map_generator = /datum/map_generator/cave_generator/fantasy_surface
 	area_has_base_lighting = TRUE
 	base_lighting_alpha = 255
+
+/area/vintage/surface_generator/swamp
+	name = "Surface Swamp"
+	map_generator = /datum/map_generator/cave_generator/fantasy_surface/swamp
 
 /area/vintage/caves
 	name = "Underground"

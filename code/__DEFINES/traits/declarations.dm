@@ -1169,4 +1169,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 
 ///Trait given to the birthday boy
 #define TRAIT_BIRTHDAY_BOY "birthday_boy"
+
+/// Trait for if the trait owner can pass through deep water without anything bad happening
+#define TRAIT_DEEP_WATER_PASSER "ice_road_trucker"
+
 // END TRAIT DEFINES
