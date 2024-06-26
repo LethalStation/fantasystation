@@ -1,7 +1,7 @@
 /obj/effect/spawner/random/rock_and_roll
 	name = "Random Rocks Spawner"
 	loot = list(
-		/obj/item/vintage_stone = 4,
+		/obj/item/vintage_stone = 7,
 		/obj/item/vintage_stone/flint = 1,
 	)
 	spawn_random_offset = TRUE
