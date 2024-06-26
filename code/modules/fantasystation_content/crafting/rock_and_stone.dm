@@ -143,7 +143,7 @@
 	throwforce = 15
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
-	toolspeed = 0.5
+	toolspeed = 2
 
 /obj/item/vintage_tool_head/knife/Initialize(mapload)
 	. = ..()
@@ -161,7 +161,7 @@
 	worn_icon = "flint_knife"
 	force = 12
 	throwforce = 17
-	toolspeed = 0.75
+	toolspeed = 1.75
 
 /obj/item/vintage_tool_head/knife/flint/spear
 	name = "flint spear head"
@@ -181,7 +181,7 @@
 	throwforce = 10
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SAW
-	toolspeed = 0.5
+	toolspeed = 2
 
 /obj/item/vintage_tool_head/axe/flint
 	name = "flint axe head"
@@ -189,4 +189,4 @@
 	inhand_icon_state = "flint_knife"
 	worn_icon = "flint_knife"
 	force = 17
-	toolspeed = 0.75
+	toolspeed = 1.75

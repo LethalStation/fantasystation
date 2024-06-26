@@ -5,7 +5,7 @@
 	has_gravity = STANDARD_GRAVITY
 	flags_1 = NONE
 	area_flags = UNIQUE_AREA | FLORA_ALLOWED | CAVES_ALLOWED
-	sound_environment = SOUND_AREA_ICEMOON
+	sound_environment = SOUND_AREA_LAVALAND
 	ambient_buzz = null
 	always_unpowered = TRUE
 	power_environ = FALSE
