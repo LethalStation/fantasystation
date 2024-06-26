@@ -5,7 +5,6 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 	var/turf/open/shallow_turf = /turf/open/water/vintage
 	var/turf/open/deep_turf = /turf/open/water/vintage/deep
 
-	var/list/turfs_to_mud = list()
 	var/list/turfs_to_shallow = list()
 	var/list/turfs_to_deep = list()
 
@@ -48,7 +47,7 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 
 			cur_turf = get_step(cur_turf, cur_dir)
 			if(!isnull(cur_turf))
-				turfs_to_mud += cur_turf
+				turfs_to_shallow += cur_turf
 
 	for(var/obj/effect/landmark/river_waypoint/waypoints as anything in river_nodes_east)
 		if (waypoints.z != target_z || waypoints.connected)
@@ -78,12 +77,7 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 
 			cur_turf = get_step(cur_turf, cur_dir)
 			if(!isnull(cur_turf))
-				turfs_to_mud += cur_turf
-
-	for(var/turf/turf_to_generate_mud in turfs_to_mud)
-		var/turf/mud_turf = new edge_turf(turf_to_generate_mud)
-		turfs_to_deep += mud_turf
-		mud_turf.spread_better(30, 5, whitelist_area)
+				turfs_to_shallow += cur_turf
 
 	for(var/turf/turf_to_generate_shallow in turfs_to_shallow)
 		var/turf/river_turf = new shallow_turf(turf_to_generate_shallow)
