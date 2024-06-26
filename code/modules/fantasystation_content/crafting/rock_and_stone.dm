@@ -55,7 +55,6 @@
 	)
 	result = /obj/item/vintage_tool_head/knife
 	time = 5 SECONDS
-	non_craftable = TRUE
 	recipe_completion_sound = 'sound/effects/break_stone.ogg'
 
 /datum/crafting_recipe/fantasystation/stone_knife_head/flint
@@ -77,7 +76,6 @@
 	)
 	result = /obj/item/vintage_tool_head/knife
 	time = 5 SECONDS
-	non_craftable = TRUE
 	recipe_completion_sound = 'sound/effects/break_stone.ogg'
 
 /datum/crafting_recipe/fantasystation/stone_axe_head/flint
@@ -99,7 +97,6 @@
 	)
 	result = /obj/item/vintage_tool_head/knife/spear
 	time = 5 SECONDS
-	non_craftable = TRUE
 	recipe_completion_sound = 'sound/effects/break_stone.ogg'
 
 /datum/crafting_recipe/fantasystation/stone_spear_head/flint
