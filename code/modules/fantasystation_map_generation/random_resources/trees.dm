@@ -31,7 +31,7 @@
 
 ///Return a see_through_map, examples in seethrough.dm
 /obj/structure/flora/fantasy_tree/proc/get_seethrough_map()
-	return SEE_THROUGH_MAP_DEFAULT
+	return SEE_THROUGH_MAP_THREE_X_TWO
 
 /obj/structure/flora/fantasy_tree/harvest(mob/living/user, product_amount_multiplier)
 	. = ..()
@@ -71,6 +71,23 @@
 	harvest_message_low = "You manage to gather a few logs from the bush."
 	harvest_message_med = "You manage to gather some logs from the bush."
 	harvest_message_high = "You manage to get most of the wood from the bush."
+	density = FALSE
+
+/obj/structure/flora/fantasy_tree/pet_bush/Initialize(mapload)
+	. = ..()
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/flora/fantasy_tree/pet_bush/proc/on_entered(datum/source, atom/movable/AM)
+	SIGNAL_HANDLER
+	if(!ismob(AM))
+		return
+	Shake(1, 1, 1 SECONDS)
+
+/obj/structure/flora/fantasy_tree/pet_bush/get_seethrough_map()
+	return SEE_THROUGH_MAP_DEFAULT
 
 // Random icon versions of the above
 
