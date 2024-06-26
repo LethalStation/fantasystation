@@ -18,8 +18,10 @@
 /turf/open/water/vintage/deep/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 	// If they are buckled to something, then they are either on a boat or buckled to a mob, which will get repelled anyways
-	if(arrived.buckled)
-		return
+	if(ismob(arrived))
+		var/mob/arriving_mob = arrived
+		if(arriving_mob.buckled)
+			return
 	// If the arrived thing is allowed to pass water, then we're not worried about throwing them away
 	if(HAS_TRAIT(arrived, TRAIT_DEEP_WATER_PASSER))
 		return
