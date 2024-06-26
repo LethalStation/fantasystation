@@ -18,6 +18,6 @@
 /turf/open/water/vintage/swamp
 	name = "murky water"
 	desc = "Gnarly green water that you can barely see through. It's likely there's a million different bugs and parasites in this, but you'd win, right?"
-	icon_state = "deepwater"
+	icon_state = "swamp"
 	baseturfs = /turf/open/water/vintage/swamp
 	immerse_overlay_color = "#547e64"
