@@ -29,12 +29,12 @@
 	string_gen = rustg_cnoise_generate("[initial_closed_chance]", "[smoothing_iterations]", "[birth_limit]", "[death_limit]", "[world.maxx]", "[world.maxy]") //Generate the raw CA data
 
 	var/humidity_gen = list()
-	humidity_gen[BIOME_HIGH_HUMIDITY] = rustg_dbp_generate("[humidity_seed]", "60", "75", "[world.maxx]", "-0.1", "1.1")
-	humidity_gen[BIOME_MEDIUM_HUMIDITY] = rustg_dbp_generate("[humidity_seed]", "60", "75", "[world.maxx]", "-0.3", "-0.1")
+	humidity_gen[BIOME_HIGH_HUMIDITY] = rustg_dbp_generate("[humidity_seed]", "60", perlin_zoom, "[world.maxx]", "-0.1", "1.1")
+	humidity_gen[BIOME_MEDIUM_HUMIDITY] = rustg_dbp_generate("[humidity_seed]", "60", perlin_zoom, "[world.maxx]", "-0.3", "-0.1")
 
 	var/heat_gen = list()
-	heat_gen[BIOME_HIGH_HEAT] = rustg_dbp_generate("[heat_seed]", "60", "75", "[world.maxx]", "-0.1", "1.1")
-	heat_gen[BIOME_MEDIUM_HEAT] = rustg_dbp_generate("[heat_seed]", "60", "75", "[world.maxx]", "-0.3", "-0.1")
+	heat_gen[BIOME_HIGH_HEAT] = rustg_dbp_generate("[heat_seed]", "60", perlin_zoom, "[world.maxx]", "-0.1", "1.1")
+	heat_gen[BIOME_MEDIUM_HEAT] = rustg_dbp_generate("[heat_seed]", "60", perlin_zoom, "[world.maxx]", "-0.3", "-0.1")
 
 	var/list/expanded_closed_turfs = src.closed_turf_types
 	var/list/expanded_open_turfs = src.open_turf_types
@@ -94,7 +94,7 @@
 #undef BIOME_RANDOM_SQUARE_DRIFT
 
 /datum/map_generator/cave_generator/fantasy_surface/swamp
-	perlin_zoom = 0
+	perlin_zoom = 20
 	possible_biomes = list(
 		BIOME_LOW_HEAT = list(
 			BIOME_LOW_HUMIDITY = /datum/biome/fantasy_the_slop_swamp,
