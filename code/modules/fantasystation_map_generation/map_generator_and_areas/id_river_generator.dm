@@ -30,8 +30,8 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 			break
 		var/detouring = FALSE
 		var/cur_dir = get_dir(cur_turf, target_turf)
+		var/turf/last_turf = cur_turf
 		while(cur_turf != target_turf)
-
 			if(detouring)
 				if(prob(20))
 					detouring = FALSE
@@ -46,8 +46,10 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 				cur_dir = get_dir(cur_turf, target_turf)
 
 			cur_turf = get_step(cur_turf, cur_dir)
-			if(!isnull(cur_turf))
-				turfs_to_shallow += cur_turf
+			if(isnull(cur_turf))
+				cur_turf = last_turf
+				continue
+			turfs_to_shallow += cur_turf
 
 	for(var/obj/effect/landmark/river_waypoint/waypoints as anything in river_nodes_east)
 		if (waypoints.z != target_z || waypoints.connected)
@@ -60,6 +62,7 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 			break
 		var/detouring = FALSE
 		var/cur_dir = get_dir(cur_turf, target_turf)
+		var/turf/last_turf = cur_turf
 		while(cur_turf != target_turf)
 
 			if(detouring)
@@ -76,8 +79,10 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 				cur_dir = get_dir(cur_turf, target_turf)
 
 			cur_turf = get_step(cur_turf, cur_dir)
-			if(!isnull(cur_turf))
-				turfs_to_shallow += cur_turf
+			if(isnull(cur_turf))
+				cur_turf = last_turf
+				continue
+			turfs_to_shallow += cur_turf
 
 	for(var/turf/turf_to_generate_shallow in turfs_to_shallow)
 		var/turf/river_turf = new shallow_turf(turf_to_generate_shallow)
