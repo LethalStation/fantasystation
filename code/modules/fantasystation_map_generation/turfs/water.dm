@@ -17,6 +17,9 @@
 
 /turf/open/water/vintage/deep/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
+	// If the thing is an abstract object, do we really need to worry about it?
+	if(arrived.invisibility == INVISIBILITY_ABSTRACT)
+		return
 	// If they are buckled to something, then they are either on a boat or buckled to a mob, which will get repelled anyways
 	if(ismob(arrived))
 		var/mob/arriving_mob = arrived
@@ -30,7 +33,8 @@
 	if(isliving(arrived))
 		to_chat(arrived, span_userdanger("The fierce currents wash you away!"))
 	playsound(src, 'sound/effects/submerge.ogg', 50, TRUE)
-	arrived.throw_at(throw_target, 2, 2)
+	arrived.throw_at(throw_target, 2, 2, force = TRUE)
+	arrived.forceMove(old_loc) // Safety measure (DIAGONAL MOVEMENT!!!)
 
 /turf/open/water/vintage/swamp
 	name = "murky water"
