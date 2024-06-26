@@ -55,7 +55,7 @@
 	flora_types = list(
 		/obj/structure/flora/fantasy_tree/stump/swamp/random_icon = 1,
 		/obj/structure/flora/fantasy_tree/swamp/random_icon = 2,
-		/obj/structure/flora/fantasy_tree/swamp/pet_bush/random_icon = 5,
+		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 5,
 		/obj/structure/flora/fantasy_regrowing = 8,
 	)
 	feature_types = list(

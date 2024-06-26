@@ -86,7 +86,7 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 			turfs_to_mud += cur_turf
 
 	for(var/turf/turf_to_generate_mud in turfs_to_mud)
-		var/turf/mud_turf = new edge_turf_turf(turf_to_generate_mud)
+		var/turf/mud_turf = new edge_turf(turf_to_generate_mud)
 		turfs_to_shallow += mud_turf
 		mud_turf.spread_better(30, 5, whitelist_area)
 
