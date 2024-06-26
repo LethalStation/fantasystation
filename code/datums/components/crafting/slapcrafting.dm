@@ -57,7 +57,7 @@
 		recipe = new recipe()
 		var/list/type_ingredient_list = recipe.reqs
 		qdel(recipe)
-		if(length(type_ingredient_list) == 1) // No ingredients besides itself? We use one of the tools then
+		if((length(type_ingredient_list) == 1) && (type_ingredient_list[1] == 1))// No ingredients besides itself? We use one of the tools then
 			type_ingredient_list = recipe.tool_paths
 			// Check the tool behaviours differently as they aren't types
 			for(var/behaviour in initial(recipe.tool_behaviors))
@@ -116,6 +116,9 @@
 
 	if(!isatom(error_string))
 		to_chat(user, span_warning("crafting failed" + error_string))
+		return
+
+	actual_recipe.on_craft_completion(user, error_string)
 
 /// Alerts any examiners to the recipe, if they wish to know more.
 /datum/component/slapcrafting/proc/get_examine_info(atom/source, mob/user, list/examine_list)

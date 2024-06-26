@@ -74,7 +74,7 @@
 	blacklist = list(
 		/obj/item/vintage_stone/flint,
 	)
-	result = /obj/item/vintage_tool_head/knife
+	result = /obj/item/vintage_tool_head/axe
 	time = 5 SECONDS
 	recipe_completion_sound = 'sound/effects/break_stone.ogg'
 
