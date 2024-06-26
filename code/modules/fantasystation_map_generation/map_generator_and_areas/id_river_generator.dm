@@ -92,13 +92,11 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 		for(var/turf/turf_near in range(1, waypoints_spawned))
 			if(!istype(turf_near, /turf/open/water/vintage/deep))
 				new /turf/open/water/vintage/deep(turf_near)
-		qdel(waypoints_spawned)
 
 	for(var/waypoints_spawned in river_nodes_south)
 		for(var/turf/turf_near in range(1, waypoints_spawned))
 			if(!istype(turf_near, /turf/open/water/vintage/deep))
 				new /turf/open/water/vintage/deep(turf_near)
-		qdel(waypoints_spawned)
 
 /obj/effect/landmark/river_waypoint/fantasystation
 	name = "fantasy river waypoint"
@@ -106,10 +104,6 @@ GLOBAL_LIST_EMPTY(tagged_river_nodes)
 /obj/effect/landmark/river_waypoint/fantasystation/Initialize(mapload)
 	. = ..()
 	GLOB.tagged_river_nodes += src
-
-/obj/effect/landmark/river_waypoint/fantasystation/Destroy()
-	GLOB.tagged_river_nodes -= src
-	return ..()
 
 /turf/proc/spread_better(probability = 30, prob_loss = 25, whitelisted_area)
 	if(probability <= 0)
