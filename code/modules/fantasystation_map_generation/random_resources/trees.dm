@@ -60,6 +60,14 @@
 	to_chat(user, span_notice("You manage to remove [src]."))
 	qdel(src)
 
+/obj/structure/flora/fantasy_tree/swamp
+	name = "swamp tree"
+	desc = "A large tree. This one is commonly seen around swamps and bogs."
+	icon_state = "swamp_tree_1"
+
+/obj/structure/flora/fantasy_tree/stump/swamp
+	icon_state = "swamp_tree_1_stump"
+
 /obj/structure/flora/fantasy_tree/pet_bush
 	name = "bush"
 	desc = "A large bush."
@@ -89,6 +97,11 @@
 /obj/structure/flora/fantasy_tree/pet_bush/get_seethrough_map()
 	return SEE_THROUGH_MAP_DEFAULT
 
+/obj/structure/flora/fantasy_tree/pet_bush/swamp
+	name = "swamp bush"
+	desc = "A large bush. This one is commonly seen in swamps and bogs"
+	icon_state = "swamp_bush_1"
+
 // Random icon versions of the above
 
 /obj/structure/flora/fantasy_tree/random_icon
@@ -115,6 +128,30 @@
 	icon_state = pick(random_states)
 	update_appearance()
 
+/obj/structure/flora/fantasy_tree/swamp/random_icon
+
+/obj/structure/flora/fantasy_tree/swamp/random_icon/Initialize(mapload)
+	. = ..()
+	var/list/random_states = list(
+		"swamp_tree_1",
+		"swamp_tree_2",
+		"swamp_tree_3",
+	)
+	icon_state = pick(random_states)
+	update_appearance()
+
+/obj/structure/flora/fantasy_tree/stump/swamp/random_icon
+
+/obj/structure/flora/fantasy_tree/stump/swamp/random_icon/Initialize(mapload)
+	. = ..()
+	var/list/random_states = list(
+		"swamp_tree_1_stump",
+		"swamp_tree_2_stump",
+		"swamp_tree_3_stump",
+	)
+	icon_state = pick(random_states)
+	update_appearance()
+
 /obj/structure/flora/fantasy_tree/pet_bush/random_icon
 
 /obj/structure/flora/fantasy_tree/pet_bush/random_icon/Initialize(mapload)
@@ -124,6 +161,18 @@
 		"bush_2",
 		"bush_3",
 		"bush_4",
+	)
+	icon_state = pick(random_states)
+	update_appearance()
+
+/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon
+
+/obj/structure/flora/fantasy_tree/pet_bush/swamp/Initialize(mapload)
+	. = ..()
+	var/list/random_states = list(
+		"swamp_bush_1",
+		"swamp_bush_2",
+		"swamp_bush_3",
 	)
 	icon_state = pick(random_states)
 	update_appearance()
