@@ -5,6 +5,7 @@
 	desc = "A long stick with a sharpened piece of stone attached to the end. Makes good for stabbing or throwing."
 	icon = 'icons/obj/weapons/spear.dmi'
 	icon_state = "stone_spear0"
+	base_icon_state = "stone_spear"
 	lefthand_file = 'icons/mob/fantasystation_onmobs/inhands/lefthand.dmi'
 	righthand_file = 'icons/mob/fantasystation_onmobs/inhands/righthand.dmi'
 	inhand_icon_state = "stone_spear0"
@@ -39,12 +40,12 @@
 	AddComponent(/datum/component/two_handed, \
 		force_unwielded = force_unwielded, \
 		force_wielded = force_wielded, \
-		icon_wielded = "[icon_prefix]1", \
+		icon_wielded = "[base_icon_state]1", \
 	)
 	update_appearance()
 
 /obj/item/fantasy_spear/update_icon_state()
-	icon_state = "[icon_prefix]0"
+	icon_state = "[base_icon_state]0"
 	return ..()
 
 /// Flint version of the spar
@@ -53,6 +54,7 @@
 	name = "flint spear"
 	desc = "A long stick with a sharpened piece of flint attached to the end. Makes good for stabbing or throwing."
 	icon_state = "flint_spear0"
+	base_icon_state = "flint_spear"
 	inhand_icon_state = "flint_spear0"
 	worn_icon_state = "flint_spear"
 	throwforce = 20
@@ -85,6 +87,7 @@
 	attack_verb_continuous = list("chops", "tears", "lacerates", "cuts")
 	attack_verb_simple = list("chop", "tear", "lacerate", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/fantasy_axe/Initialize(mapload)
 	. = ..()
@@ -132,6 +135,7 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
+	slot_flags = ITEM_SLOT_BELT
 
 /obj/item/fantasy_knife/Initialize(mapload)
 	. = ..()
