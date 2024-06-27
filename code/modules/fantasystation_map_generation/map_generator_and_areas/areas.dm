@@ -12,7 +12,7 @@
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
-	ambientsounds = list()
+	ambience_index = AMBIENCE_FANTASY_SURFACE
 
 /area/vintage/surface_generator
 	name = "Surface Forest"
