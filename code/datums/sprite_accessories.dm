@@ -1084,12 +1084,12 @@
 	icon_state = "loincloth_short"
 	gender = NEUTER
 
-/datum/sprite_accessory/underwear/male_boxers
+/datum/sprite_accessory/underwear/loincloth_long
 	name = "Loincloth Long"
 	icon_state = "loincloth_long"
 	gender = NEUTER
 
-/datum/sprite_accessory/underwear/male_boxers
+/datum/sprite_accessory/underwear/underwear_small
 	name = "Small"
 	icon_state = "underwear_small"
 	gender = NEUTER
@@ -1101,6 +1101,7 @@
 /datum/sprite_accessory/undershirt
 	icon = 'icons/mob/fantasystation_onmobs/sprite_accessories/underwear.dmi'
 	em_block = TRUE
+	use_static = FALSE
 
 /datum/sprite_accessory/undershirt/nude
 	name = "Nude"
