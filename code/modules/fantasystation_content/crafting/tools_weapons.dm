@@ -3,7 +3,7 @@
 /obj/item/fantasy_spear
 	name = "stone spear"
 	desc = "A long stick with a sharpened piece of stone attached to the end. Makes good for stabbing or throwing."
-	icon = 'icons/obj/weapons/spear.dmi'
+	icon = 'icons/obj/fantasystation_obj/tools.dmi'
 	icon_state = "stone_spear0"
 	base_icon_state = "stone_spear"
 	lefthand_file = 'icons/mob/fantasystation_onmobs/inhands/lefthand.dmi'
