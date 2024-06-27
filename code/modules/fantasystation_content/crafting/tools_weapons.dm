@@ -8,7 +8,6 @@
 	base_icon_state = "stone_spear"
 	lefthand_file = 'icons/mob/fantasystation_onmobs/inhands/lefthand.dmi'
 	righthand_file = 'icons/mob/fantasystation_onmobs/inhands/righthand.dmi'
-	inhand_icon_state = "stone_spear0"
 	worn_icon = 'icons/mob/fantasystation_onmobs/worn_items/worn.dmi'
 	worn_icon_state = "stone_spear"
 	force = 10
@@ -55,7 +54,6 @@
 	desc = "A long stick with a sharpened piece of flint attached to the end. Makes good for stabbing or throwing."
 	icon_state = "flint_spear0"
 	base_icon_state = "flint_spear"
-	inhand_icon_state = "flint_spear0"
 	worn_icon_state = "flint_spear"
 	throwforce = 20
 	wound_bonus = -10
@@ -83,6 +81,7 @@
 	throwforce = 15
 	throw_speed = 4
 	throw_range = 7
+	demolition_mod = 1.5
 	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
 	attack_verb_continuous = list("chops", "tears", "lacerates", "cuts")
 	attack_verb_simple = list("chop", "tear", "lacerate", "cut")

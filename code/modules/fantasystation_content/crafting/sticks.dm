@@ -12,6 +12,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	force = 15
 	throwforce = 10
+	resistance_flags = FLAMMABLE
 	/// How many variations of sprite does this have?
 	var/icon_variations = 2
 
