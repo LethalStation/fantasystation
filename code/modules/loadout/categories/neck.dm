@@ -22,15 +22,3 @@
 /datum/loadout_item/neck/greyscale_larger
 	name = "Scarf (Larger, Colorable)"
 	item_path = /obj/item/clothing/neck/infinity_scarf
-
-/datum/loadout_item/neck/necktie
-	name = "Necktie (Colorable)"
-	item_path = /obj/item/clothing/neck/tie
-
-/datum/loadout_item/neck/necktie_disco
-	name = "Necktie (Ugly)"
-	item_path = /obj/item/clothing/neck/tie/horrible
-
-/datum/loadout_item/neck/necktie_loose
-	name = "Necktie (Loose)"
-	item_path = /obj/item/clothing/neck/tie/detective
