@@ -66,6 +66,7 @@
 	seethrough = FALSE
 	makes_stumps = FALSE
 	number_of_sticks = 0
+	plane = GAME_PLANE
 
 /obj/structure/flora/fantasy_tree/stump/harvest(mob/living/user, product_amount_multiplier)
 	to_chat(user, span_notice("You manage to remove [src]."))

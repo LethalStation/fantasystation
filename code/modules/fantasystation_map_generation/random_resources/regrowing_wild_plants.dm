@@ -11,7 +11,7 @@
 	product_types = list(/obj/item/fantasy_cut_grass = 1)
 	harvest_amount_low = 1
 	harvest_amount_high = 3
-	harvest_with_hands = TRUE
+	harvest_with_hands = FALSE
 	harvest_message_low = "You cut the grass, managing to collect only a little of it."
 	harvest_message_med = "You cut the grass, managing to collect a fair amount of it."
 	harvest_message_high = "You cut the grass, collecting almost all of it."
