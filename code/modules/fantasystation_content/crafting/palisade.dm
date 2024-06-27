@@ -8,6 +8,7 @@
 	climbable = FALSE
 	max_integrity = 200
 	resistance_flags = FLAMMABLE
+	obj_flags = CAN_BE_HIT | BLOCKS_CONSTRUCTION_DIR | IGNORE_DENSITY
 
 /obj/structure/railing/fantasy_palisade/Initialize(mapload)
 	. = ..()

@@ -25,6 +25,10 @@ GLOBAL_LIST_INIT(swamp_log_recipes, list(
 	throw_speed = 5
 	throw_range = 3
 
+/obj/item/stack/fantasy_logs/Initialize(mapload, new_amount, merge, list/mat_override, mat_amt)
+	. = ..()
+	update_appearance()
+
 /obj/item/stack/fantasy_logs/get_main_recipes()
 	. = ..()
 	. = GLOB.log_recipes
