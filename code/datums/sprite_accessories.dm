@@ -1071,8 +1071,8 @@
 
 /datum/sprite_accessory/undershirt
 	icon = 'icons/mob/fantasystation_onmobs/sprite_accessories/underwear.dmi'
-	em_block = TRUE
 	use_static = FALSE
+	em_block = TRUE
 
 /datum/sprite_accessory/undershirt/nude
 	name = "Nude"
