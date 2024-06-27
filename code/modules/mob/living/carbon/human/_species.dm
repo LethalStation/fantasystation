@@ -806,7 +806,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_BELT)
-			var/obj/item/bodypart/O = H.get_bodypart(BODY_ZONE_CHEST)
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(ITEM_SLOT_EYES)
 			if(!H.get_bodypart(BODY_ZONE_HEAD))
