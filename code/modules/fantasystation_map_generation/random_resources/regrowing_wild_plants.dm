@@ -18,6 +18,7 @@
 	harvest_message_true_thresholds = TRUE
 	harvest_verb = "cut"
 	flora_flags = FLORA_HERBAL
+	resistance_flags = FLAMMABLE
 	var/harvest_icon_state = "grass_cut"
 
 /obj/structure/flora/fantasy_regrowing/harvest(user, product_amount_multiplier)
@@ -30,3 +31,13 @@
 /obj/structure/flora/fantasy_regrowing/regrow()
 	..()
 	icon_state = base_icon_state
+
+/// Cut grass
+
+/obj/item/dunegrass
+	name = "cut grass"
+	desc = "A pile of cut grass."
+	icon = 'icons/obj/fantasystation_obj/harvested_plants.dmi'
+	icon_state = "grass"
+	resistance_flags = FLAMMABLE
+	w_class = WEIGHT_CLASS_SMALL

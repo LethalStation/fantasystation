@@ -8,7 +8,9 @@
 	layer = FLY_LAYER
 	plane = ABOVE_GAME_PLANE
 	drag_slowdown = 1.5
-	product_types = list(/obj/item/grown/log/tree = 1)
+	product_types = list(
+		/obj/item/stack/fantasy_logs = 1,
+	)
 	harvest_amount_low = 6
 	harvest_amount_high = 10
 	harvest_message_low = "You manage to gather a few logs from the tree."
@@ -19,6 +21,7 @@
 	delete_on_harvest = TRUE
 	can_uproot = FALSE
 	flora_flags = FLORA_HERBAL | FLORA_WOODEN
+	resistance_flags = FLAMMABLE
 	/// If this tree has a seethrough map
 	var/seethrough = TRUE
 	/// If this makes a stump when cut down
@@ -56,9 +59,12 @@
 	name = "stump"
 	desc = "This represents our promise to the elves, and the world itself. To cut down as many trees as possible."
 	icon_state = "tree_1_stump"
+	harvest_amount_low = 0
+	harvest_amount_high = 0
 	density = FALSE
 	delete_on_harvest = TRUE
 	seethrough = FALSE
+	makes_stumps = FALSE
 	number_of_sticks = 0
 
 /obj/structure/flora/fantasy_tree/stump/harvest(mob/living/user, product_amount_multiplier)
@@ -74,6 +80,9 @@
 	name = "swamp tree"
 	desc = "A large tree. This one is commonly seen around swamps and bogs."
 	icon_state = "swamp_tree_1"
+	product_types = list(
+		/obj/item/stack/fantasy_logs/swamp = 1,
+	)
 
 /obj/structure/flora/fantasy_tree/stump/swamp
 	icon_state = "swamp_tree_1_stump"
@@ -84,13 +93,14 @@
 	icon = 'icons/obj/fantasystation_obj/tall_plants.dmi'
 	icon_state = "bush_1"
 	pixel_x = 0
-	harvest_amount_low = 2
-	harvest_amount_high = 5
+	harvest_amount_low = 1
+	harvest_amount_high = 2
 	harvest_message_low = "You manage to gather a few logs from the bush."
 	harvest_message_med = "You manage to gather some logs from the bush."
 	harvest_message_high = "You manage to get most of the wood from the bush."
 	density = FALSE
-	number_of_sticks = 0
+	makes_stumps = FALSE
+	number_of_sticks = 2
 
 /obj/structure/flora/fantasy_tree/pet_bush/Initialize(mapload)
 	. = ..()
@@ -113,6 +123,9 @@
 	name = "swamp bush"
 	desc = "A large bush. This one is commonly seen in swamps and bogs"
 	icon_state = "swamp_bush_1"
+	product_types = list(
+		/obj/item/stack/fantasy_logs/swamp = 1,
+	)
 
 // Random icon versions of the above
 
