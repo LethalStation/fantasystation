@@ -3,7 +3,7 @@
 	category_name = "Neck"
 	category_ui_icon = FA_ICON_USER_TIE
 	type_to_generate = /datum/loadout_item/neck
-	tab_order = /datum/loadout_category/head::tab_order + 2
+	tab_order = 1
 
 /datum/loadout_item/neck
 	abstract_type = /datum/loadout_item/neck
@@ -22,15 +22,3 @@
 /datum/loadout_item/neck/greyscale_larger
 	name = "Scarf (Larger, Colorable)"
 	item_path = /obj/item/clothing/neck/infinity_scarf
-
-/datum/loadout_item/neck/necktie
-	name = "Necktie (Colorable)"
-	item_path = /obj/item/clothing/neck/tie
-
-/datum/loadout_item/neck/necktie_disco
-	name = "Necktie (Ugly)"
-	item_path = /obj/item/clothing/neck/tie/horrible
-
-/datum/loadout_item/neck/necktie_loose
-	name = "Necktie (Loose)"
-	item_path = /obj/item/clothing/neck/tie/detective

@@ -18,6 +18,9 @@
 	///item released when deconstructed
 	var/item_deconstruct = /obj/item/stack/rods
 
+	/// Can it be deconstructed like a regular railing?
+	var/deconstructs_normally = TRUE
+
 /datum/armor/structure_railing
 	melee = 35
 	bullet = 50
@@ -64,10 +67,11 @@
 
 /obj/structure/railing/examine(mob/user)
 	. = ..()
-	if(anchored == TRUE)
-		. += span_notice("The railing is <b>bolted</b> to the floor.")
-	else
-		. += span_notice("The railing is <i>unbolted</i> from the floor and can be deconstructed with <b>wirecutters</b>.")
+	if(deconstructs_normally)
+		if(anchored == TRUE)
+			. += span_notice("The railing is <b>bolted</b> to the floor.")
+		else
+			. += span_notice("The railing is <i>unbolted</i> from the floor and can be deconstructed with <b>wirecutters</b>.")
 
 /obj/structure/railing/attackby(obj/item/I, mob/living/user, params)
 	..()
@@ -89,6 +93,8 @@
 
 /obj/structure/railing/wirecutter_act(mob/living/user, obj/item/I)
 	. = ..()
+	if(!deconstructs_normally)
+		return FALSE
 	to_chat(user, span_warning("You cut apart the railing."))
 	I.play_tool_sound(src, 100)
 	deconstruct()
@@ -102,6 +108,8 @@
 ///Implements behaviour that makes it possible to unanchor the railing.
 /obj/structure/railing/wrench_act(mob/living/user, obj/item/I)
 	. = ..()
+	if(!deconstructs_normally)
+		return FALSE
 	to_chat(user, span_notice("You begin to [anchored ? "unfasten the railing from":"fasten the railing to"] the floor..."))
 	if(I.use_tool(src, user, volume = 75, extra_checks = CALLBACK(src, PROC_REF(check_anchored), anchored)))
 		set_anchored(!anchored)

@@ -12,7 +12,9 @@
 	power_equip = FALSE
 	power_light = FALSE
 	requires_power = TRUE
-	ambientsounds = list()
+	ambience_index = AMBIENCE_FANTASY_SURFACE
+	min_ambience_cooldown = 2 MINUTES
+	max_ambience_cooldown = 5 MINUTES
 
 /area/vintage/surface_generator
 	name = "Surface Forest"
