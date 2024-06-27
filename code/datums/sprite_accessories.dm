@@ -599,7 +599,7 @@
 	name = "Ponytail (Peritya)"
 	icon_state = "hair_ponytail_peritya"
 
-/datum/sprite_accessory/hair/perityatail
+/datum/sprite_accessory/hair/superbraid
 	name = "Ponytail (Super Braid)"
 	icon_state = "hair_ponytailsuperbraid"
 
@@ -722,10 +722,6 @@
 /datum/sprite_accessory/hair/trimflat
 	name = "Trim Flat"
 	icon_state = "hair_trimflat"
-
-/datum/sprite_accessory/hair/twintails
-	name = "Twintails"
-	icon_state = "hair_twintail"
 
 /datum/sprite_accessory/hair/undercut
 	name = "Undercut"
