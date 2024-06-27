@@ -75,15 +75,6 @@
 	name = "Afro (Large)"
 	icon_state = "hair_bigafro"
 
-/datum/sprite_accessory/hair/afro_huge
-	name = "Afro (Huge)"
-	icon_state = "hair_hugeafro"
-	y_offset = 6
-
-/datum/sprite_accessory/hair/allthefuzz
-	name = "All The Fuzz"
-	icon_state = "hair_allthefuzz"
-
 /datum/sprite_accessory/hair/antenna
 	name = "Ahoge"
 	icon_state = "hair_antenna"
@@ -108,10 +99,6 @@
 	name = "Bedhead 3"
 	icon_state = "hair_bedheadv3"
 
-/datum/sprite_accessory/hair/bedheadv4
-	name = "Bedhead 4x"
-	icon_state = "hair_bedheadv4"
-
 /datum/sprite_accessory/hair/bedheadlong
 	name = "Long Bedhead"
 	icon_state = "hair_long_bedhead"
@@ -119,10 +106,6 @@
 /datum/sprite_accessory/hair/bedheadfloorlength
 	name = "Floorlength Bedhead"
 	icon_state = "hair_floorlength_bedhead"
-
-/datum/sprite_accessory/hair/badlycut
-	name = "Shorter Long Bedhead"
-	icon_state = "hair_verybadlycut"
 
 /datum/sprite_accessory/hair/beehive
 	name = "Beehive"
@@ -235,10 +218,6 @@
 /datum/sprite_accessory/hair/buzz
 	name = "Buzzcut"
 	icon_state = "hair_buzzcut"
-
-/datum/sprite_accessory/hair/chinbob
-	name = "Chin-Length Bob Cut"
-	icon_state = "hair_chinbob"
 
 /datum/sprite_accessory/hair/comet
 	name = "Comet"
@@ -512,10 +491,6 @@
 	name = "Over Eye"
 	icon_state = "hair_shortovereye"
 
-/datum/sprite_accessory/hair/hair_overeyetwo
-	name = "Over Eye 2"
-	icon_state = "hair_overeyetwo"
-
 /datum/sprite_accessory/hair/oxton
 	name = "Oxton"
 	icon_state = "hair_oxton"
@@ -620,6 +595,14 @@
 	name = "Ponytail (Spiky)"
 	icon_state = "hair_spikyponytail"
 
+/datum/sprite_accessory/hair/perityatail
+	name = "Ponytail (Peritya)"
+	icon_state = "hair_ponytail_peritya"
+
+/datum/sprite_accessory/hair/perityatail
+	name = "Ponytail (Super Braid)"
+	icon_state = "hair_ponytailsuperbraid"
+
 /datum/sprite_accessory/hair/poofy
 	name = "Poofy"
 	icon_state = "hair_poofy"
@@ -675,10 +658,6 @@
 /datum/sprite_accessory/hair/shorthaireighties
 	name = "Short Hair 80s"
 	icon_state = "hair_80s"
-
-/datum/sprite_accessory/hair/rosa
-	name = "Short Hair Rosa"
-	icon_state = "hair_rosa"
 
 /datum/sprite_accessory/hair/shoulderlength
 	name = "Shoulder-length Hair"
@@ -795,10 +774,6 @@
 /datum/sprite_accessory/hair/wisp
 	name = "Wisp"
 	icon_state = "hair_wisp"
-
-/datum/sprite_accessory/hair/ziegler
-	name = "Ziegler"
-	icon_state = "hair_ziegler"
 
 /*
 /////////////////////////////////////
