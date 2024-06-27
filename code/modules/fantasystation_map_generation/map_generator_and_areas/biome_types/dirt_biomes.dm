@@ -8,6 +8,7 @@
 		/obj/structure/flora/fantasy_regrowing = 8,
 	)
 	feature_types = list(
+		/obj/item/vintage_stick = 3,
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
 		/obj/effect/spawner/random/rock_and_roll/lots_of_them = 1,
@@ -27,6 +28,7 @@
 		/obj/structure/flora/fantasy_tree/pet_bush/random_icon = 6,
 	)
 	feature_types = list(
+		/obj/item/vintage_stick = 3,
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
 		/obj/effect/spawner/random/rock_and_roll/lots_of_them = 1,
@@ -44,6 +46,7 @@
 		/obj/structure/flora/fantasy_regrowing = 1,
 	)
 	feature_types = list(
+		/obj/item/vintage_stick = 3,
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
 		/obj/effect/spawner/random/rock_and_roll/lots_of_them = 1,
