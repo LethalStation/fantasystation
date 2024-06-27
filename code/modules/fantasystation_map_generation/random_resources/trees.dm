@@ -23,6 +23,8 @@
 	var/seethrough = TRUE
 	/// If this makes a stump when cut down
 	var/makes_stumps = TRUE
+	/// How many sticks this tree makes when cut down
+	var/number_of_sticks = 3
 
 /obj/structure/flora/fantasy_tree/Initialize(mapload)
 	. = ..()
@@ -42,6 +44,13 @@
 	var/obj/structure/flora/fantasy_tree/stump/new_stump = new(my_turf)
 	new_stump.name = "[name] stump"
 	new_stump.icon_state = "[icon_state]_stump"
+	var/list/nearby_turfs = list()
+	for(var/turf/near_turf in range(1))
+		nearby_turfs += near_turf
+	for(var/new_stick in 1 to number_of_sticks)
+		var/obj/new_stick_spawned = new /obj/item/vintage_stick(pick(nearby_turfs))
+		new_stick_spawned.pixel_x = rand(-14, 14)
+		new_stick_spawned.pixel_y = rand(-14, 14)
 
 /obj/structure/flora/fantasy_tree/stump
 	name = "stump"
@@ -50,6 +59,7 @@
 	density = FALSE
 	delete_on_harvest = TRUE
 	seethrough = FALSE
+	number_of_sticks = 0
 
 /obj/structure/flora/fantasy_tree/stump/harvest(mob/living/user, product_amount_multiplier)
 	to_chat(user, span_notice("You manage to remove [src]."))
@@ -80,6 +90,7 @@
 	harvest_message_med = "You manage to gather some logs from the bush."
 	harvest_message_high = "You manage to get most of the wood from the bush."
 	density = FALSE
+	number_of_sticks = 0
 
 /obj/structure/flora/fantasy_tree/pet_bush/Initialize(mapload)
 	. = ..()
@@ -93,6 +104,7 @@
 	if(!ismob(AM))
 		return
 	Shake(1, 1, 1 SECONDS)
+	playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = TRUE)
 
 /obj/structure/flora/fantasy_tree/pet_bush/get_seethrough_map()
 	return SEE_THROUGH_MAP_DEFAULT

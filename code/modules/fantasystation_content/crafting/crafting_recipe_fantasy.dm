@@ -1,3 +1,6 @@
+/datum/crafting_recipe
+	non_craftable = TRUE
+
 /datum/crafting_recipe/fantasystation
 	/// What sound we make when the recipe is finished, if any
 	var/recipe_completion_sound

@@ -46,7 +46,7 @@
 
 /datum/crafting_recipe/fantasystation/stone_knife_head
 	name = "stone knife blade"
-	desc = "Hit rocks together until you get something vaguely shaped like a knife"
+	desc = "Hit rocks together until you get something vaguely shaped like a knife."
 	reqs = list(
 		/obj/item/vintage_stone = 2,
 	)
@@ -56,6 +56,7 @@
 	result = /obj/item/vintage_tool_head/knife
 	time = 5 SECONDS
 	recipe_completion_sound = 'sound/effects/break_stone.ogg'
+	category = CAT_TOOLS
 
 /datum/crafting_recipe/fantasystation/stone_knife_head/flint
 	name = "flint knife blade"
@@ -67,7 +68,7 @@
 
 /datum/crafting_recipe/fantasystation/stone_axe_head
 	name = "stone axe head"
-	desc = "Hit rocks together until you get something vaguely shaped like an axe"
+	desc = "Hit rocks together until you get something vaguely shaped like an axe."
 	reqs = list(
 		/obj/item/vintage_stone = 2,
 	)
@@ -77,6 +78,7 @@
 	result = /obj/item/vintage_tool_head/axe
 	time = 5 SECONDS
 	recipe_completion_sound = 'sound/effects/break_stone.ogg'
+	category = CAT_TOOLS
 
 /datum/crafting_recipe/fantasystation/stone_axe_head/flint
 	name = "flint axe head"
@@ -88,7 +90,7 @@
 
 /datum/crafting_recipe/fantasystation/stone_spear_head
 	name = "stone spear head"
-	desc = "Hit rocks together until you get something vaguely shaped like the tip of a spear"
+	desc = "Hit rocks together until you get something vaguely shaped like the tip of a spear."
 	reqs = list(
 		/obj/item/vintage_stone = 2,
 	)
@@ -98,6 +100,7 @@
 	result = /obj/item/vintage_tool_head/knife/spear
 	time = 5 SECONDS
 	recipe_completion_sound = 'sound/effects/break_stone.ogg'
+	category = CAT_TOOLS
 
 /datum/crafting_recipe/fantasystation/stone_spear_head/flint
 	name = "flint spear head"
@@ -144,6 +147,9 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
 	toolspeed = 2
+	slapcraft_recipe_list = list(
+		/datum/crafting_recipe/fantasystation/stone_knife,
+	)
 
 /obj/item/vintage_tool_head/knife/Initialize(mapload)
 	. = ..()
@@ -153,6 +159,9 @@
 	name = "stone spear head"
 	desc = "The head of a spear, missing the shaft to actually make it anything more than a glorified knife."
 	icon_state = "stone_spearhead"
+	slapcraft_recipe_list = list(
+		/datum/crafting_recipe/fantasystation/stone_spear,
+	)
 
 /obj/item/vintage_tool_head/knife/flint
 	name = "flint knife blade"
@@ -162,11 +171,17 @@
 	force = 12
 	throwforce = 17
 	toolspeed = 1.75
+	slapcraft_recipe_list = list(
+		/datum/crafting_recipe/fantasystation/stone_knife/flint,
+	)
 
 /obj/item/vintage_tool_head/knife/flint/spear
 	name = "flint spear head"
 	desc = "The head of a spear, missing the shaft to actually make it anything more than a glorified knife."
 	icon_state = "flint_spearhead"
+	slapcraft_recipe_list = list(
+		/datum/crafting_recipe/fantasystation/stone_spear/flint,
+	)
 
 /// Axe heads
 
@@ -182,6 +197,9 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_SAW
 	toolspeed = 2
+	slapcraft_recipe_list = list(
+		/datum/crafting_recipe/fantasystation/stone_axe,
+	)
 
 /obj/item/vintage_tool_head/axe/flint
 	name = "flint axe head"
@@ -190,3 +208,78 @@
 	worn_icon = "flint_knife"
 	force = 17
 	toolspeed = 1.75
+	slapcraft_recipe_list = list(
+		/datum/crafting_recipe/fantasystation/stone_axe/flint,
+	)
+
+/// Crafting recipes for stone tool heads
+
+/datum/crafting_recipe/fantasystation/stone_knife
+	name = "stone knife"
+	desc = "Tie your bashed rock to a stick to make a pretty workable cutting tool."
+	reqs = list(
+		/obj/item/vintage_tool_head/knife = 1,
+		/obj/item/vintage_stick = 1,
+	)
+	blacklist = list(
+		/obj/item/vintage_tool_head/knife/flint,
+	)
+	result = /obj/item/fantasy_knife
+	time = 5 SECONDS
+	recipe_completion_sound = 'sound/items/hammering_wood.ogg'
+	category = CAT_TOOLS
+
+/datum/crafting_recipe/fantasystation/stone_knife/flint
+	name = "flint knife"
+	reqs = list(
+		/obj/item/vintage_tool_head/knife/flint = 1,
+		/obj/item/vintage_stick = 1,
+	)
+	blacklist = list()
+	result = /obj/item/fantasy_knife/flint
+
+/datum/crafting_recipe/fantasystation/stone_axe
+	name = "stone axe"
+	desc = "Tie your bashed rock to a stick to make a pretty workable axe."
+	reqs = list(
+		/obj/item/vintage_tool_head/axe = 1,
+		/obj/item/vintage_stick = 1,
+	)
+	blacklist = list(
+		/obj/item/vintage_tool_head/axe/flint,
+	)
+	result = /obj/item/fantasy_axe
+	time = 5 SECONDS
+	recipe_completion_sound = 'sound/items/hammering_wood.ogg'
+	category = CAT_TOOLS
+
+/datum/crafting_recipe/fantasystation/stone_axe/flint
+	name = "flint axe"
+	reqs = list(
+		/obj/item/vintage_tool_head/axe/flint = 1,
+		/obj/item/vintage_stick = 1,
+	)
+	blacklist = list()
+	result = /obj/item/fantasy_axe/flint
+
+/datum/crafting_recipe/fantasystation/stone_spear
+	name = "stone spear"
+	desc = "Tie your bashed rock to a long stick to make a pretty workable poking tool."
+	reqs = list(
+		/obj/item/vintage_tool_head/knife/spear = 1,
+		/obj/item/vintage_stick = 1,
+	)
+	blacklist = list()
+	result = /obj/item/fantasy_spear
+	time = 5 SECONDS
+	recipe_completion_sound = 'sound/items/hammering_wood.ogg'
+	category = CAT_TOOLS
+
+/datum/crafting_recipe/fantasystation/stone_spear/flint
+	name = "flint spear"
+	reqs = list(
+		/obj/item/vintage_tool_head/knife/flint/spear = 1,
+		/obj/item/vintage_stick = 1,
+	)
+	blacklist = list()
+	result = /obj/item/fantasy_spear/flint

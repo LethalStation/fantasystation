@@ -6,6 +6,7 @@
 		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 1,
 	)
 	feature_types = list(
+		/obj/item/vintage_stick = 3,
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
 		/obj/effect/spawner/random/rock_and_roll/lots_of_them = 1,
@@ -23,11 +24,13 @@
 		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 2,
 		/obj/structure/flora/fantasy_tree/swamp/random_icon = 1,
 	)
-	feature_types = list()
+	feature_types = list(
+		/obj/item/vintage_stick = 1,
+	)
 	fauna_types = list()
 
 	flora_density = 40
-	feature_density = 0
+	feature_density = 5
 	fauna_density = 0
 
 /datum/biome/fantasy_the_slop_swamp
@@ -39,6 +42,7 @@
 		/obj/structure/flora/fantasy_tree/swamp/random_icon = 1,
 	)
 	feature_types = list(
+		/obj/item/vintage_stick = 3,
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
 		/obj/effect/spawner/random/rock_and_roll/lots_of_them = 1,
@@ -59,6 +63,7 @@
 		/obj/structure/flora/fantasy_regrowing = 8,
 	)
 	feature_types = list(
+		/obj/item/vintage_stick = 3,
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
 		/obj/effect/spawner/random/rock_and_roll/lots_of_them = 1,
@@ -77,6 +82,7 @@
 		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 1,
 	)
 	feature_types = list(
+		/obj/item/vintage_stick = 3,
 		/obj/effect/spawner/random/rock_and_roll = 3,
 		/obj/effect/spawner/random/rock_and_roll/super = 2,
 		/obj/effect/spawner/random/rock_and_roll/lots_of_them = 1,
