@@ -34,7 +34,6 @@ SUBSYSTEM_DEF(daynight)
 	var/night_duration = 10 MINUTES
 
 /datum/controller/subsystem/daynight/Initialize()
-	color_alpha_tracker = new
 	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), 3 MINUTES)
 	return SS_INIT_SUCCESS
 
