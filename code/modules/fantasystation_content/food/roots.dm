@@ -18,6 +18,9 @@
 	seed = /obj/item/seeds/fantasy_river_reed
 	foodtypes = VEGETABLES
 	plant_to_make = /obj/structure/flora/fantasy_regrowing/cattail/ungrown
+	turfs_we_plant_on = list(
+		/turf/open/water/vintage,
+	)
 	tastes = list(
 		"starch" = 3,
 		"dirt" = 2,
@@ -30,7 +33,7 @@
 	name = "debug muckroot seeds"
 	desc = "You're not supposed to be here. - Jesus, shortly after catching you time travelling."
 	icon_state = "seed-kronkus"
-	product = /obj/item/food/grown/river_muckroot
+	product = /obj/item/food/grown/fantasy_muckroot
 	reagents_add = list(
 		/datum/reagent/consumable/nutriment/cloth_fibers = 0.06,
 		/datum/reagent/consumable/nutriment/vitamin = 0.04,
@@ -44,6 +47,10 @@
 	icon_state = "muckroot"
 	seed = /obj/item/seeds/fantasy_muckroot_seed
 	foodtypes = VEGETABLES
+	turfs_we_plant_on = list(
+		/turf/open/misc/muck_slop,
+		/turf/open/misc/fire_clay,
+	)
 	plant_to_make = /obj/structure/flora/fantasy_regrowing/muckroot/ungrown
 	tastes = list(
 		"starch" = 3,
