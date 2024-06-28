@@ -1,9 +1,9 @@
 GLOBAL_LIST_INIT(log_recipes, list(
-	new/datum/stack_recipe("palisade", /obj/structure/railing/fantasy_palisade, 2, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("palisade", /obj/structure/railing/fantasy_palisade, 2, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 ))
 
 GLOBAL_LIST_INIT(swamp_log_recipes, list(
-	new/datum/stack_recipe("palisade", /obj/structure/railing/fantasy_palisade/swamp, 2, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("palisade", /obj/structure/railing/fantasy_palisade/swamp, 2, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_CHECK_DIRECTION | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 ))
 
 /obj/item/stack/fantasy_logs
