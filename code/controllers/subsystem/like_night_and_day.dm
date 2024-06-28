@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(daynight)
 	var/night_duration = 10 MINUTES
 
 /datum/controller/subsystem/daynight/Initialize()
-	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), 3 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), 1 MINUTES)
 	return SS_INIT_SUCCESS
 
 /// Gets the areas the controller will need to edit
@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(daynight)
 	return areas_to_edit
 
 /// Starts the transition to afternoon
-/datum/controller/subsystem/daynight/proc/start_afternoon_transition(iteration)
+/datum/controller/subsystem/daynight/proc/start_afternoon_transition(iteration = 1)
 	var/list/areas_edited_now = get_areas_to_edit()
 	for(var/area/surface_area in areas_edited_now)
 		surface_area.base_lighting_alpha = LERP(daytime_alpha, day_transition_alpha, iteration / 5)
@@ -56,7 +56,7 @@ SUBSYSTEM_DEF(daynight)
 	addtimer(CALLBACK(src, PROC_REF(start_afternoon_golden_hour)), day_transition_duration / 5)
 
 /// Starts the transition to afternoon golden hour
-/datum/controller/subsystem/daynight/proc/start_afternoon_golden_hour(iteration)
+/datum/controller/subsystem/daynight/proc/start_afternoon_golden_hour(iteration = 1)
 	var/list/areas_edited_now = get_areas_to_edit()
 	for(var/area/surface_area in areas_edited_now)
 		surface_area.base_lighting_alpha = LERP(day_transition_alpha, golden_hour_alpha, iteration / 5)
@@ -67,7 +67,7 @@ SUBSYSTEM_DEF(daynight)
 	addtimer(CALLBACK(src, PROC_REF(start_end_of_day)), golden_hour_duration / 5)
 
 /// Starts the transition to the end of the day
-/datum/controller/subsystem/daynight/proc/start_end_of_day(iteration)
+/datum/controller/subsystem/daynight/proc/start_end_of_day(iteration = 1)
 	var/list/areas_edited_now = get_areas_to_edit()
 	for(var/area/surface_area in areas_edited_now)
 		surface_area.base_lighting_alpha = LERP(golden_hour_alpha, night_alpha, iteration / 10)
@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(daynight)
 	addtimer(CALLBACK(src, PROC_REF(start_morning_golden_hour)), night_duration / 10)
 
 /// Starts the transition to early morning
-/datum/controller/subsystem/daynight/proc/start_morning_golden_hour(iteration)
+/datum/controller/subsystem/daynight/proc/start_morning_golden_hour(iteration = 1)
 	var/list/areas_edited_now = get_areas_to_edit()
 	for(var/area/surface_area in areas_edited_now)
 		surface_area.base_lighting_alpha = LERP(night_alpha, golden_hour_alpha, iteration / 5)
@@ -89,7 +89,7 @@ SUBSYSTEM_DEF(daynight)
 	addtimer(CALLBACK(src, PROC_REF(start_morning_transition)), golden_hour_duration / 5)
 
 /// Starts the transition to morning
-/datum/controller/subsystem/daynight/proc/start_morning_transition(iteration)
+/datum/controller/subsystem/daynight/proc/start_morning_transition(iteration = 1)
 	var/list/areas_edited_now = get_areas_to_edit()
 	for(var/area/surface_area in areas_edited_now)
 		surface_area.base_lighting_alpha = LERP(golden_hour_alpha, day_transition_alpha, iteration / 5)
@@ -100,7 +100,7 @@ SUBSYSTEM_DEF(daynight)
 	addtimer(CALLBACK(src, PROC_REF(start_mid_day)), day_transition_duration / 5)
 
 /// Starts mid-day
-/datum/controller/subsystem/daynight/proc/start_mid_day(iteration)
+/datum/controller/subsystem/daynight/proc/start_mid_day(iteration = 1)
 	var/list/areas_edited_now = get_areas_to_edit()
 	for(var/area/surface_area in areas_edited_now)
 		surface_area.base_lighting_alpha = LERP(day_transition_alpha, daytime_alpha, iteration / 15)
