@@ -18,6 +18,11 @@
 	seed = /obj/item/seeds/fantasy_river_reed
 	foodtypes = VEGETABLES
 	plant_to_make = /obj/structure/flora/fantasy_regrowing/cattail/ungrown
+	tastes = list(
+		"starch" = 3,
+		"dirt" = 2,
+		"sugary water" = 1,
+	)
 
 /// Muckroot
 
@@ -40,3 +45,8 @@
 	seed = /obj/item/seeds/fantasy_muckroot_seed
 	foodtypes = VEGETABLES
 	plant_to_make = /obj/structure/flora/fantasy_regrowing/muckroot/ungrown
+	tastes = list(
+		"starch" = 3,
+		"dirt" = 2,
+		"sugary water" = 1,
+	)
