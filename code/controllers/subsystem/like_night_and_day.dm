@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(daynight)
 	name = "Daynight"
-	wait = 10 SECONDS
+	flags = SS_NO_FIRE
 	init_order = INIT_ORDER_NIGHT_AND_DAY
 	runlevels = RUNLEVELS_DEFAULT
 	/// List of all areas we check for in the day/night cycle
@@ -52,6 +52,7 @@ SUBSYSTEM_DEF(daynight)
 		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, daytime_color, 1, day_transition_color)
 	if(iteration < 5)
 		addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition), iteration + 1), day_transition_duration / 5)
+		return
 	addtimer(CALLBACK(src, PROC_REF(start_afternoon_golden_hour)), day_transition_duration / 5)
 
 /// Starts the transition to afternoon golden hour
