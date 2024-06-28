@@ -48,10 +48,10 @@
 	linked_department = department
 	var/datum/job_department/linked_department_real = SSjob.get_department_type(linked_department)
 	// Heads of staff can download
-	download_access |= linked_department_real.head_of_staff_access
+	download_access |= linked_department_real?.head_of_staff_access
 	// Heads of staff + anyone in the dept can run it
-	use_access |= linked_department_real.head_of_staff_access
-	use_access |= linked_department_real.department_access
+	use_access |= linked_department_real?.head_of_staff_access
+	use_access |= linked_department_real?.department_access
 	// Also set up the radio
 	if(dept_to_radio[linked_department])
 		if(!isnull(radio))
@@ -134,7 +134,7 @@
 		return null
 	var/list/access_to_depts = list()
 	for(var/datum/job_department/department as anything in department_cooldowns)
-		access_to_depts[initial(department.head_of_staff_access)] = department
+		access_to_depts[initial(department?.head_of_staff_access)] = department
 	for(var/access_key in id_card.GetAccess())
 		if(access_to_depts[access_key])
 			return access_to_depts[access_key]

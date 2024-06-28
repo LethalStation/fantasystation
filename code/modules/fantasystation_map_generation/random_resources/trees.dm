@@ -6,7 +6,7 @@
 	density = TRUE
 	pixel_x = -24
 	layer = FLY_LAYER
-	plane = ABOVE_GAME_PLANE
+	plane = GAME_PLANE
 	drag_slowdown = 1.5
 	product_types = list(
 		/obj/item/stack/fantasy_logs = 1,

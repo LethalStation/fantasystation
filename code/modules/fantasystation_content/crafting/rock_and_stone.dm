@@ -100,7 +100,7 @@
 	result = /obj/item/vintage_tool_head/knife/spear
 	time = 5 SECONDS
 	recipe_completion_sound = 'sound/effects/break_stone.ogg'
-	category = CAT_TOOLS
+	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/fantasystation/stone_spear_head/flint
 	name = "flint spear head"
@@ -273,7 +273,7 @@
 	result = /obj/item/fantasy_spear
 	time = 5 SECONDS
 	recipe_completion_sound = 'sound/items/hammering_wood.ogg'
-	category = CAT_TOOLS
+	category = CAT_WEAPON_MELEE
 
 /datum/crafting_recipe/fantasystation/stone_spear/flint
 	name = "flint spear"

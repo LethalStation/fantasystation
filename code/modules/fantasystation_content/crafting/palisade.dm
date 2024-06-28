@@ -4,7 +4,7 @@
 	icon = 'icons/obj/fantasystation_obj/fences.dmi'
 	icon_state = "palisade"
 	item_deconstruct = /obj/item/stack/fantasy_logs
-	layer = ABOVE_MOB_LAYER
+	layer = VEHICLE_LAYER
 	climbable = FALSE
 	max_integrity = 200
 	resistance_flags = FLAMMABLE
