@@ -111,7 +111,7 @@
 	new /obj/item/food/grown/river_reed_root(drop_location())
 
 /obj/structure/flora/fantasy_regrowing/cattail/ungrown
-	spawns_harvested = FALSE
+	spawns_harvested = TRUE
 
 /// Cut cattails
 
@@ -145,4 +145,4 @@
 	delete_on_harvest = TRUE
 
 /obj/structure/flora/fantasy_regrowing/muckroot/ungrown
-	spawns_harvested = FALSE
+	spawns_harvested = TRUE
