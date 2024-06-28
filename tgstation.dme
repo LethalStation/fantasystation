@@ -4084,8 +4084,6 @@
 #include "code\modules\fantasystation_map_generation\random_resources\regrowing_wild_plants.dm"
 #include "code\modules\fantasystation_map_generation\random_resources\rocks_spawner.dm"
 #include "code\modules\fantasystation_map_generation\random_resources\trees.dm"
-#include "code\modules\fantasystation_map_generation\turf_farms\turf_farm_component.dm"
-#include "code\modules\fantasystation_map_generation\turf_farms\turf_farm_structure.dm"
 #include "code\modules\fantasystation_map_generation\turfs\dirt.dm"
 #include "code\modules\fantasystation_map_generation\turfs\water.dm"
 #include "code\modules\fishing\admin.dm"
