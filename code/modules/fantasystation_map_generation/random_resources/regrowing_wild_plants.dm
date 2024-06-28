@@ -134,9 +134,9 @@
 	icon_state = "muckroot"
 	base_icon_state = "muckroot"
 	product_types = list(/obj/item/food/grown/fantasy_muckroot = 1)
-	harvest_message_low = "You dig up the muckroot, managing to collect only a little of it."
-	harvest_message_med = "You dig up the muckroot, managing to collect a fair amount of it."
-	harvest_message_high = "You dig up the muckroot, collecting almost all of it."
+	harvest_message_low = "You dig up the muckroot, managing to collect only a little of the roots."
+	harvest_message_med = "You dig up the muckroot, managing to collect a fair amount of the roots."
+	harvest_message_high = "You dig up the muckroot, collecting almost all of the roots."
 	harvest_verb = "dig"
 	harvest_verb_suffix = "s up"
 	harvest_icon_state = "muckroot_growing"
