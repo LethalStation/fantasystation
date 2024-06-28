@@ -3,6 +3,7 @@
 
 	flora_types = list(
 		/obj/structure/flora/fantasy_regrowing = 2,
+		/obj/structure/flora/fantasy_regrowing/cattail = 1,
 		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 1,
 	)
 	feature_types = list(
@@ -21,8 +22,9 @@
 	turf_type = /turf/open/misc/fire_clay
 
 	flora_types = list(
-		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 2,
-		/obj/structure/flora/fantasy_tree/swamp/random_icon = 1,
+		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 3,
+		/obj/structure/flora/fantasy_tree/swamp/random_icon = 2,
+		/obj/structure/flora/fantasy_regrowing/muckroot = 1,
 	)
 	feature_types = list(
 		/obj/item/vintage_stick = 1,
@@ -37,9 +39,10 @@
 	turf_type = /turf/open/misc/muck_slop
 
 	flora_types = list(
-		/obj/structure/flora/fantasy_regrowing = 2,
-		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 2,
-		/obj/structure/flora/fantasy_tree/swamp/random_icon = 1,
+		/obj/structure/flora/fantasy_regrowing = 3,
+		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 3,
+		/obj/structure/flora/fantasy_tree/swamp/random_icon = 2,
+		/obj/structure/flora/fantasy_regrowing/muckroot = 1,
 	)
 	feature_types = list(
 		/obj/item/vintage_stick = 3,

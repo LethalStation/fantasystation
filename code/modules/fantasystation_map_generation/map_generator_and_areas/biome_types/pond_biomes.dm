@@ -1,7 +1,9 @@
 /datum/biome/fantasy_water_pond
 	turf_type = /turf/open/water/vintage
 
-	flora_types = list()
+	flora_types = list(
+		/obj/structure/flora/fantasy_regrowing/cattail = 1,
+	)
 	feature_types = list(
 		/obj/item/vintage_stick = 3,
 		/obj/effect/spawner/random/rock_and_roll = 3,
@@ -10,7 +12,7 @@
 	)
 	fauna_types = list()
 
-	flora_density = 0
+	flora_density = 10
 	feature_density = 10
 	fauna_density = 0
 
