@@ -62,6 +62,7 @@ SUBSYSTEM_DEF(daynight)
 		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, day_transition_color, 1, golden_hour_color)
 	if(iteration < 5)
 		addtimer(CALLBACK(src, PROC_REF(start_afternoon_golden_hour), iteration + 1), day_transition_duration / 5)
+		return
 	addtimer(CALLBACK(src, PROC_REF(start_end_of_day)), golden_hour_duration / 5)
 
 /// Starts the transition to the end of the day
@@ -72,6 +73,7 @@ SUBSYSTEM_DEF(daynight)
 		surface_area.base_lighting_color = hsl_gradient(iteration / 10, 0, golden_hour_color, 1, night_color)
 	if(iteration < 10)
 		addtimer(CALLBACK(src, PROC_REF(start_end_of_day), iteration + 1), day_transition_duration / 10)
+		return
 	addtimer(CALLBACK(src, PROC_REF(start_morning_golden_hour)), night_duration / 10)
 
 /// Starts the transition to early morning
@@ -82,6 +84,7 @@ SUBSYSTEM_DEF(daynight)
 		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, night_color, 1, golden_hour_color)
 	if(iteration < 5)
 		addtimer(CALLBACK(src, PROC_REF(start_morning_golden_hour), iteration + 1), day_transition_duration / 5)
+		return
 	addtimer(CALLBACK(src, PROC_REF(start_morning_transition)), golden_hour_duration / 5)
 
 /// Starts the transition to morning
@@ -92,6 +95,7 @@ SUBSYSTEM_DEF(daynight)
 		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, golden_hour_color, 1, day_transition_color)
 	if(iteration < 5)
 		addtimer(CALLBACK(src, PROC_REF(start_morning_transition), iteration + 1), day_transition_duration / 5)
+		return
 	addtimer(CALLBACK(src, PROC_REF(start_mid_day)), day_transition_duration / 5)
 
 /// Starts mid-day
@@ -102,4 +106,5 @@ SUBSYSTEM_DEF(daynight)
 		surface_area.base_lighting_color = hsl_gradient(iteration / 15, 0, day_transition_color, 1, daytime_color)
 	if(iteration < 15)
 		addtimer(CALLBACK(src, PROC_REF(start_mid_day), iteration + 1), day_transition_duration / 15)
+		return
 	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), daytime_duration / 15)
