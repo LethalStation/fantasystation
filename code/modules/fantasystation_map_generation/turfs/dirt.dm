@@ -90,7 +90,6 @@
 
 /turf/open/misc/dry_soil/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/turf_farm, 0.5)
 	if(smoothing_flags)
 		var/matrix/translation = new
 		translation.Translate(-8, -8)
@@ -123,7 +122,6 @@
 
 /turf/open/misc/regular_soil/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/turf_farm, 0.7)
 	if(smoothing_flags)
 		var/matrix/translation = new
 		translation.Translate(-8, -8)
@@ -157,7 +155,6 @@
 
 /turf/open/misc/muck_slop/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/turf_farm, 1)
 	if(smoothing_flags)
 		var/matrix/translation = new
 		translation.Translate(-8, -8)
