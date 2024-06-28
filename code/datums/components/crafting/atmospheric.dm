@@ -25,7 +25,7 @@
 		/obj/item/assembly/igniter = 1,
 	)
 	blacklist = list(/obj/item/assembly/igniter/condenser)
-	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF
+	crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_MUST_BE_LEARNED
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
 
