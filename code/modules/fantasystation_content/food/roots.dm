@@ -32,7 +32,7 @@
 	icon_state = "seed-kronkus"
 	product = /obj/item/food/grown/river_muckroot
 	reagents_add = list(
-		/datum/reagent/consumable/nutriment/cloth_fibers = 0.06
+		/datum/reagent/consumable/nutriment/cloth_fibers = 0.06,
 		/datum/reagent/consumable/nutriment/vitamin = 0.04,
 		/datum/reagent/consumable/nutriment = 0.1,
 	)
