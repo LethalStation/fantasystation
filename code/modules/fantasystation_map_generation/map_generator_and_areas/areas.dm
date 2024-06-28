@@ -21,6 +21,7 @@
 	map_generator = /datum/map_generator/cave_generator/fantasy_surface
 	area_has_base_lighting = TRUE
 	base_lighting_alpha = 255
+	outdoors = TRUE
 
 /area/vintage/surface_generator/swamp
 	name = "Surface Swamp"
