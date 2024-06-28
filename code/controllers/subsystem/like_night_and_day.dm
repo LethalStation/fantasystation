@@ -1,9 +1,10 @@
 SUBSYSTEM_DEF(daynight)
 	name = "Daynight"
-	flags = SS_NO_FIRE
+	wait = 10 SECONDS
 	init_order = INIT_ORDER_NIGHT_AND_DAY
 	runlevels = RUNLEVELS_DEFAULT
-
+	/// This is insanely stupid but it might work? The obj we keep in nullspace that we animate the colors and alpha on to modify our lighting from
+	var/obj/color_alpha_tracker
 	/// List of all areas we check for in the day/night cycle
 	var/list/areas_influenced = list(
 		/area/vintage/surface_generator,
@@ -35,8 +36,17 @@ SUBSYSTEM_DEF(daynight)
 	var/night_duration = 10 MINUTES
 
 /datum/controller/subsystem/daynight/Initialize()
+	color_alpha_tracker = new
 	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), daytime_duration)
 	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/daynight/fire(resumed)
+	var/list/areas_to_transition = get_areas_to_edit()
+	for(var/area/transition_area in areas_to_transition)
+		if(!transition_area.base_lighting_alpha == color_alpha_tracker.alpha)
+			transition_area.base_lighting_alpha = color_alpha_tracker.alpha
+		if(!transition_area.base_lighting_color == color_alpha_tracker.color)
+			transition_area.base_lighting_color = color_alpha_tracker.color
 
 /// Gets the areas the controller will need to edit
 /datum/controller/subsystem/daynight/proc/get_areas_to_edit()
@@ -46,9 +56,7 @@ SUBSYSTEM_DEF(daynight)
 	return areas_to_edit
 
 /datum/controller/subsystem/daynight/proc/start_animation(color_to_trans, alpha_to_trans, time_to_trans)
-	var/list/areas_to_transition = get_areas_to_edit()
-	for(var/area/transition_area in areas_to_transition)
-		animate(transition_area, transition_area.base_lighting_color = color_to_trans, transition_area.base_lighting_alpha = alpha_to_trans, time = time_to_trans)
+	animate(color_alpha_tracker, color = color_to_trans, alpha = alpha_to_trans, time = time_to_trans)
 
 /// Starts the transition to afternoon
 /datum/controller/subsystem/daynight/proc/start_afternoon_transition()
