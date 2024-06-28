@@ -3,8 +3,6 @@ SUBSYSTEM_DEF(daynight)
 	wait = 10 SECONDS
 	init_order = INIT_ORDER_NIGHT_AND_DAY
 	runlevels = RUNLEVELS_DEFAULT
-	/// This is insanely stupid but it might work? The obj we keep in nullspace that we animate the colors and alpha on to modify our lighting from
-	var/obj/color_alpha_tracker
 	/// List of all areas we check for in the day/night cycle
 	var/list/areas_influenced = list(
 		/area/vintage/surface_generator,
@@ -37,16 +35,8 @@ SUBSYSTEM_DEF(daynight)
 
 /datum/controller/subsystem/daynight/Initialize()
 	color_alpha_tracker = new
-	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), daytime_duration)
+	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), 3 MINUTES)
 	return SS_INIT_SUCCESS
-
-/datum/controller/subsystem/daynight/fire(resumed)
-	var/list/areas_to_transition = get_areas_to_edit()
-	for(var/area/transition_area in areas_to_transition)
-		if(!transition_area.base_lighting_alpha == color_alpha_tracker.alpha)
-			transition_area.base_lighting_alpha = color_alpha_tracker.alpha
-		if(!transition_area.base_lighting_color == color_alpha_tracker.color)
-			transition_area.base_lighting_color = color_alpha_tracker.color
 
 /// Gets the areas the controller will need to edit
 /datum/controller/subsystem/daynight/proc/get_areas_to_edit()
@@ -55,35 +45,62 @@ SUBSYSTEM_DEF(daynight)
 		areas_to_edit += GLOB.areas_by_type[area_to_check]
 	return areas_to_edit
 
-/datum/controller/subsystem/daynight/proc/start_animation(color_to_trans, alpha_to_trans, time_to_trans)
-	animate(color_alpha_tracker, color = color_to_trans, alpha = alpha_to_trans, time = time_to_trans)
-
 /// Starts the transition to afternoon
-/datum/controller/subsystem/daynight/proc/start_afternoon_transition()
-	start_animation(day_transition_color,day_transition_alpha, day_transition_duration)
-	addtimer(CALLBACK(src, PROC_REF(start_afternoon_golden_hour)), day_transition_duration + 10 SECONDS)
+/datum/controller/subsystem/daynight/proc/start_afternoon_transition(iteration)
+	var/list/areas_edited_now = get_areas_to_edit()
+	for(var/area/surface_area in areas_edited_now)
+		surface_area.base_lighting_alpha = LERP(daytime_alpha, day_transition_alpha, iteration / 5)
+		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, daytime_color, 1, day_transition_color)
+	if(iteration < 5)
+		addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition), iteration + 1), day_transition_duration / 5)
+	addtimer(CALLBACK(src, PROC_REF(start_afternoon_golden_hour)), day_transition_duration / 5)
 
 /// Starts the transition to afternoon golden hour
-/datum/controller/subsystem/daynight/proc/start_afternoon_golden_hour()
-	start_animation(golden_hour_color, golden_hour_alpha, golden_hour_duration)
-	addtimer(CALLBACK(src, PROC_REF(start_end_of_day)), golden_hour_duration + 10 SECONDS)
+/datum/controller/subsystem/daynight/proc/start_afternoon_golden_hour(iteration)
+	var/list/areas_edited_now = get_areas_to_edit()
+	for(var/area/surface_area in areas_edited_now)
+		surface_area.base_lighting_alpha = LERP(day_transition_alpha, golden_hour_alpha, iteration / 5)
+		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, day_transition_color, 1, golden_hour_color)
+	if(iteration < 5)
+		addtimer(CALLBACK(src, PROC_REF(start_afternoon_golden_hour), iteration + 1), day_transition_duration / 5)
+	addtimer(CALLBACK(src, PROC_REF(start_end_of_day)), golden_hour_duration / 5)
 
 /// Starts the transition to the end of the day
-/datum/controller/subsystem/daynight/proc/start_end_of_day()
-	start_animation(night_color, night_alpha, night_duration)
-	addtimer(CALLBACK(src, PROC_REF(start_morning_golden_hour)), night_duration + 10 SECONDS)
+/datum/controller/subsystem/daynight/proc/start_end_of_day(iteration)
+	var/list/areas_edited_now = get_areas_to_edit()
+	for(var/area/surface_area in areas_edited_now)
+		surface_area.base_lighting_alpha = LERP(golden_hour_alpha, night_alpha, iteration / 10)
+		surface_area.base_lighting_color = hsl_gradient(iteration / 10, 0, golden_hour_color, 1, night_color)
+	if(iteration < 10)
+		addtimer(CALLBACK(src, PROC_REF(start_end_of_day), iteration + 1), day_transition_duration / 10)
+	addtimer(CALLBACK(src, PROC_REF(start_morning_golden_hour)), night_duration / 10)
 
 /// Starts the transition to early morning
-/datum/controller/subsystem/daynight/proc/start_morning_golden_hour()
-	start_animation(golden_hour_color, golden_hour_alpha, golden_hour_duration)
-	addtimer(CALLBACK(src, PROC_REF(start_morning_transition)), golden_hour_duration + 10 SECONDS)
+/datum/controller/subsystem/daynight/proc/start_morning_golden_hour(iteration)
+	var/list/areas_edited_now = get_areas_to_edit()
+	for(var/area/surface_area in areas_edited_now)
+		surface_area.base_lighting_alpha = LERP(night_alpha, golden_hour_alpha, iteration / 5)
+		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, night_color, 1, golden_hour_color)
+	if(iteration < 5)
+		addtimer(CALLBACK(src, PROC_REF(start_morning_golden_hour), iteration + 1), day_transition_duration / 5)
+	addtimer(CALLBACK(src, PROC_REF(start_morning_transition)), golden_hour_duration / 5)
 
 /// Starts the transition to morning
-/datum/controller/subsystem/daynight/proc/start_morning_transition()
-	start_animation(day_transition_color, day_transition_alpha, day_transition_duration)
-	addtimer(CALLBACK(src, PROC_REF(start_mid_day)), day_transition_duration + 10 SECONDS)
+/datum/controller/subsystem/daynight/proc/start_morning_transition(iteration)
+	var/list/areas_edited_now = get_areas_to_edit()
+	for(var/area/surface_area in areas_edited_now)
+		surface_area.base_lighting_alpha = LERP(golden_hour_alpha, day_transition_alpha, iteration / 5)
+		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, golden_hour_color, 1, day_transition_color)
+	if(iteration < 5)
+		addtimer(CALLBACK(src, PROC_REF(start_morning_transition), iteration + 1), day_transition_duration / 5)
+	addtimer(CALLBACK(src, PROC_REF(start_mid_day)), day_transition_duration / 5)
 
 /// Starts mid-day
-/datum/controller/subsystem/daynight/proc/start_mid_day()
-	start_animation(daytime_color, daytime_alpha, daytime_duration / 3)
-	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), daytime_duration)
+/datum/controller/subsystem/daynight/proc/start_mid_day(iteration)
+	var/list/areas_edited_now = get_areas_to_edit()
+	for(var/area/surface_area in areas_edited_now)
+		surface_area.base_lighting_alpha = LERP(day_transition_alpha, daytime_alpha, iteration / 15)
+		surface_area.base_lighting_color = hsl_gradient(iteration / 15, 0, day_transition_color, 1, daytime_color)
+	if(iteration < 15)
+		addtimer(CALLBACK(src, PROC_REF(start_mid_day), iteration + 1), day_transition_duration / 15)
+	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), daytime_duration / 15)
