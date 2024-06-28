@@ -25,7 +25,7 @@
 	rpg_title = "Peasant"
 	job_flags = STATION_JOB_FLAGS
 
-/datum/job/gakster/after_spawn(mob/living/spawned, client/player_client)
+/datum/job/dweller/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
 	ADD_TRAIT(spawned, TRAIT_VIRUSIMMUNE, JOB_TRAIT)
 
