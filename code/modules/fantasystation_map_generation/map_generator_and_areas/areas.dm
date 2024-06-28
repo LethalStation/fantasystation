@@ -13,8 +13,8 @@
 	power_light = FALSE
 	requires_power = TRUE
 	ambience_index = AMBIENCE_FANTASY_SURFACE
-	min_ambience_cooldown = 2 MINUTES
-	max_ambience_cooldown = 5 MINUTES
+	min_ambience_cooldown = 1 MINUTES
+	max_ambience_cooldown = 2 MINUTES
 
 /area/vintage/surface_generator
 	name = "Surface Forest"
