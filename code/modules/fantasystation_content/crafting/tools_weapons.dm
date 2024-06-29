@@ -173,7 +173,7 @@
 
 /obj/item/fantasy_firestarter/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	. = ..()
-	if(!isturf(interacting_with) || !isobj(interacting_with))
+	if(!isturf(interacting_with) && !isobj(interacting_with))
 		interacting_with.balloon_alert(user, "cannot ignite this")
 		return ITEM_INTERACT_BLOCKING
 	if(!do_after(user, 20 SECONDS, interacting_with))

@@ -41,7 +41,7 @@
 
 /obj/structure/fantasy_campfire/examine(mob/user)
 	. = ..()
-	. += span_notice("It has roughly <b>[fuel_remaining / 1 MINUTES] minute(s)</b> of fuel left.")
+	. += span_notice("It has roughly <b>[fuel_remaining / (1 MINUTES)] minute(s)</b> of fuel left.")
 
 /obj/structure/fantasy_campfire/attackby(obj/item/used_item, mob/living/user, params)
 	if(used_item.get_temperature())
@@ -96,7 +96,7 @@
 	burning = TRUE
 	set_light(6)
 	bonfire_burn()
-	particles = new /particles/bonfire()
+	particles = new /particles/fantasy_campfire()
 	START_PROCESSING(SSobj, src)
 
 /obj/structure/fantasy_campfire/fire_act(exposed_temperature, exposed_volume)
@@ -160,5 +160,26 @@
 	STOP_PROCESSING(SSobj, src)
 
 /// Campfire but it looks like swamp wood
+
 /obj/structure/fantasy_campfire/swamp
 	icon_state = "campfire_swamp"
+
+/// Particle system used by these fires to look cooler (and I dont want to sprite fire)
+
+/particles/fantasy_campfire
+	icon = 'icons/effects/particles/bonfire.dmi'
+	icon_state = "bonfire"
+	width = 100
+	height = 100
+	count = 1000
+	spawning = 6
+	lifespan = 0.7 SECONDS
+	fade = 1 SECONDS
+	grow = -0.01
+	velocity = list(0, 0)
+	position = generator(GEN_CIRCLE, 0, 10, NORMAL_RAND)
+	drift = generator(GEN_VECTOR, list(0, -0.2), list(0, 0.2))
+	gravity = list(0, 0.95)
+	scale = generator(GEN_VECTOR, list(0.3, 0.3), list(1.5,1.5), NORMAL_RAND)
+	rotation = 30
+	spin = generator(GEN_NUM, -20, 20)

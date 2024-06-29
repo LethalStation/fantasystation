@@ -436,7 +436,7 @@
 		. += "[src] seems quite practical for particularly <font color='red'>morbid</font> procedures and experiments."
 
 	if(campfire_fuel_value)
-		. += span_notice("It is flammable and will make a campfire burn <b>[campfire_fuel_value / 1 MINUTES] minute(s)</b> longer")
+		. += span_notice("It is flammable and will make a campfire burn <b>[campfire_fuel_value / (1 MINUTES)] minute(s)</b> longer")
 
 	if(resistance_flags & INDESTRUCTIBLE)
 		. += "[src] seems extremely robust! It'll probably withstand anything that could happen to it!"
