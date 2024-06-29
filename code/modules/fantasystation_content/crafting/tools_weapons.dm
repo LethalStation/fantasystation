@@ -184,7 +184,6 @@
 		var/turf/interacting_turf = interacting_with
 		interacting_turf.hotspot_expose(1000, 100)
 	else
-		var/turf/turf_to_ignite = get_turf(interacting_with)
-		turf_to_ignite.hotspot_expose(1000, 100)
+		interacting_with.fire_act(1000, 100)
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
