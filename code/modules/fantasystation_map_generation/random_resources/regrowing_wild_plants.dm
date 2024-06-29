@@ -7,7 +7,7 @@
 	icon_state = "tall_grass"
 	base_icon_state = "tall_grass"
 	gender = PLURAL
-	layer = MOB_LAYER
+	layer = MOB_LAYER - 0.08
 	product_types = list(/obj/item/fantasy_cut_grass = 1)
 	harvest_amount_low = 1
 	harvest_amount_high = 3
