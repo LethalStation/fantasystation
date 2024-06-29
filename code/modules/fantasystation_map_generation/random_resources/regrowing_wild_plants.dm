@@ -59,7 +59,7 @@
 
 	if(harvesting_item)
 		//Check to see if wooden flora is being attacked by a saw item (letting the items on/off state control this is better than putting them in the list)
-		if((flora_flags & FLORA_WOODEN) && (harvesting_item.tool_behaviour == TOOL_SAW))
+		if((flora_flags & FLORA_WOODEN) && (harvesting_item.tool_behaviour == TOOL_AXE))
 			return TRUE
 		//Check to see if stone flora is being attacked by a mining item (same reason as above)
 		if((flora_flags & FLORA_STONE) && (harvesting_item.tool_behaviour == TOOL_MINING))

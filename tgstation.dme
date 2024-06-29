@@ -4071,6 +4071,7 @@
 #include "code\modules\fantasystation_content\crafting\rock_and_stone.dm"
 #include "code\modules\fantasystation_content\crafting\sticks.dm"
 #include "code\modules\fantasystation_content\crafting\tools_weapons.dm"
+#include "code\modules\fantasystation_content\crafting\walls.dm"
 #include "code\modules\fantasystation_content\crafting\wood.dm"
 #include "code\modules\fantasystation_content\food\grown_plants_addons.dm"
 #include "code\modules\fantasystation_content\food\roots.dm"

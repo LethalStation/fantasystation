@@ -71,6 +71,7 @@
 	TOOL_WELDER,
 	TOOL_WIRECUTTER,
 	TOOL_WRENCH,
+	TOOL_AXE,
 	)
 
 /obj/item/debug/omnitool/attack_self(mob/user)
