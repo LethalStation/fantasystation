@@ -17,6 +17,12 @@
 
 /turf/open/water/vintage/deep/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
+	// If the thing is a projectile, for the love of god leave it alone
+	if(isprojectile(arrived))
+		return
+	// If the thing is an effect then also leave it the hell alone
+	if(iseffect(arrived))
+		return
 	// If the thing is an abstract object, do we really need to worry about it?
 	if(arrived.invisibility == INVISIBILITY_ABSTRACT)
 		return
