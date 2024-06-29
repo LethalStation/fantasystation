@@ -158,3 +158,29 @@
 	wound_bonus = 5
 	bare_wound_bonus = 15
 	toolspeed = 1.5
+
+/// Firestarter tool
+
+/obj/item/fantasy_firestarter
+	name = "firestarter"
+	desc = "Two sticks and some wound together dried grass, excellent for starting fires with."
+	icon = 'icons/obj/fantasystation_obj/tools.dmi'
+	icon_state = "firestarter"
+	lefthand_file = 'icons/mob/fantasystation_onmobs/inhands/lefthand.dmi'
+	righthand_file = 'icons/mob/fantasystation_onmobs/inhands/righthand.dmi'
+	inhand_icon_state = "stick"
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/fantasy_firestarter/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	. = ..()
+	if(!isturf(interacting_with) || !isobj(interacting_with))
+		interacting_with.balloon_alert(user, "cannot ignite this")
+		return ITEM_INTERACT_BLOCKING
+	if(!do_after(user, 20 SECONDS, interacting_with))
+		return ITEM_INTERACT_BLOCKING
+	if(isturf(interacting_with))
+		var/turf/interacting_turf = interacting_with
+		interacting_turf.hotspot_expose(1000, 100)
+	else
+		var/turf/turf_to_ignite = get_turf(interacting_with)
+		turf_to_ignite.hotspot_expose(1000, 100)

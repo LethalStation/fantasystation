@@ -109,7 +109,7 @@
 	regrowth_time_high = 20 MINUTES
 
 /obj/structure/flora/fantasy_regrowing/cattail/atom_deconstruct(disassembled)
-	new /obj/item/food/grown/river_reed_root(drop_location())
+	new /obj/item/food/fantasy_grown/river_reed_root(drop_location())
 
 /obj/structure/flora/fantasy_regrowing/cattail/ungrown
 	spawns_harvested = TRUE
@@ -134,7 +134,7 @@
 	icon = 'icons/obj/fantasystation_obj/plants.dmi'
 	icon_state = "muckroot"
 	base_icon_state = "muckroot"
-	product_types = list(/obj/item/food/grown/fantasy_muckroot = 1)
+	product_types = list(/obj/item/food/fantasy_grown/fantasy_muckroot = 1)
 	harvest_message_low = "You dig up the muckroot, managing to collect only a little of the roots."
 	harvest_message_med = "You dig up the muckroot, managing to collect a fair amount of the roots."
 	harvest_message_high = "You dig up the muckroot, collecting almost all of the roots."
