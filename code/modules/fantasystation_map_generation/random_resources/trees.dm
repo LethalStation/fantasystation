@@ -61,7 +61,7 @@
 
 ///Return a see_through_map, examples in seethrough.dm
 /obj/structure/flora/fantasy_tree/proc/get_seethrough_map()
-	return SEE_THROUGH_MAP_THREE_X_TWO
+	return SEE_THROUGH_MAP_DEFAULT
 
 /obj/structure/flora/fantasy_tree/harvest(mob/living/user, product_amount_multiplier)
 	. = ..()
@@ -69,9 +69,9 @@
 		return
 	var/turf/my_turf = get_turf(src)
 	if(felling_sound)
-		playsound(my_turf, felling_sound, 100, TRUE)
+		playsound(my_turf, felling_sound, 50, TRUE)
 	else
-		playsound(my_turf, SFX_TREE_CHOP, 100 , FALSE)
+		playsound(my_turf, SFX_TREE_CHOP, 100 , TRUE)
 	var/obj/structure/flora/fantasy_tree/stump/new_stump = new(my_turf)
 	new_stump.name = "[name] stump"
 	new_stump.icon_state = "[icon_state]_stump"
@@ -95,6 +95,7 @@
 	makes_stumps = FALSE
 	number_of_sticks = 0
 	plane = GAME_PLANE
+	felling_sound = null
 
 /obj/structure/flora/fantasy_tree/stump/harvest(mob/living/user, product_amount_multiplier)
 	to_chat(user, span_notice("You manage to remove [src]."))
@@ -130,6 +131,7 @@
 	density = FALSE
 	makes_stumps = FALSE
 	number_of_sticks = 2
+	felling_sound = null
 
 /obj/structure/flora/fantasy_tree/pet_bush/Initialize(mapload)
 	. = ..()

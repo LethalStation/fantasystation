@@ -195,7 +195,7 @@
 	force = 15
 	throwforce = 10
 	sharpness = SHARP_EDGED
-	tool_behaviour = TOOL_SAW
+	tool_behaviour = TOOL_AXE
 	toolspeed = 2
 	slapcraft_recipe_list = list(
 		/datum/crafting_recipe/fantasystation/stone_axe,
