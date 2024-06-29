@@ -31,6 +31,8 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 
 /mob/dead/get_status_tab_items()
 	. = ..()
+	. += "Players: [LAZYLEN(GLOB.clients)]"
+
 	if(SSticker.HasRoundStarted())
 		return
 	var/time_remaining = SSticker.GetTimeLeft()
@@ -41,7 +43,6 @@ INITIALIZE_IMMEDIATE(/mob/dead)
 	else
 		. += "Time To Start: SOON"
 
-	. += "Players: [LAZYLEN(GLOB.clients)]"
 	if(client.holder)
 		. += "Players Ready: [SSticker.totalPlayersReady]"
 		. += "Admins Ready: [SSticker.total_admins_ready] / [length(GLOB.admins)]"
