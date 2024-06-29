@@ -41,7 +41,7 @@
 
 /obj/structure/fantasy_campfire/examine(mob/user)
 	. = ..()
-	. += span_notice("It has roughly <b>[fuel_remaining / (1 MINUTES)] minute(s)</b> of fuel left.")
+	. += span_notice("It has roughly <b>[round(fuel_remaining / (1 MINUTES), 0.1)] minute(s)</b> of fuel left.")
 
 /obj/structure/fantasy_campfire/attackby(obj/item/used_item, mob/living/user, params)
 	if(used_item.get_temperature())
