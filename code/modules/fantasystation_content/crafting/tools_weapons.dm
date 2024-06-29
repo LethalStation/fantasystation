@@ -170,6 +170,7 @@
 	righthand_file = 'icons/mob/fantasystation_onmobs/inhands/righthand.dmi'
 	inhand_icon_state = "stick"
 	w_class = WEIGHT_CLASS_NORMAL
+	resistance_flags = FLAMMABLE
 
 /obj/item/fantasy_firestarter/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	. = ..()
@@ -178,9 +179,12 @@
 		return ITEM_INTERACT_BLOCKING
 	if(!do_after(user, 20 SECONDS, interacting_with))
 		return ITEM_INTERACT_BLOCKING
+	playsound(interacting_with, 'sound/fantasystation/tools/firestarter.ogg', 50, TRUE)
 	if(isturf(interacting_with))
 		var/turf/interacting_turf = interacting_with
 		interacting_turf.hotspot_expose(1000, 100)
 	else
 		var/turf/turf_to_ignite = get_turf(interacting_with)
 		turf_to_ignite.hotspot_expose(1000, 100)
+	qdel(src)
+	return ITEM_INTERACT_SUCCESS
