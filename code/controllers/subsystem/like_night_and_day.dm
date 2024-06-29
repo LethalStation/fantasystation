@@ -34,7 +34,7 @@ SUBSYSTEM_DEF(daynight)
 	var/night_duration = 10 MINUTES
 
 /datum/controller/subsystem/daynight/Initialize()
-	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), 1 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(start_afternoon_transition)), 10 MINUTES)
 	return SS_INIT_SUCCESS
 
 /// Gets the areas the controller will need to edit
@@ -72,8 +72,8 @@ SUBSYSTEM_DEF(daynight)
 /datum/controller/subsystem/daynight/proc/start_end_of_day(iteration = 1)
 	var/list/areas_edited_now = get_areas_to_edit()
 	for(var/area/surface_area in areas_edited_now)
-		surface_area.base_lighting_alpha = LERP(golden_hour_alpha, night_alpha, iteration / 10)
-		surface_area.base_lighting_color = hsl_gradient(iteration / 10, 0, golden_hour_color, 1, night_color)
+		surface_area.base_lighting_alpha = LERP(golden_hour_alpha, night_alpha, iteration / 5)
+		surface_area.base_lighting_color = hsl_gradient(iteration / 5, 0, golden_hour_color, 1, night_color)
 		surface_area.update_base_lighting()
 	if(iteration < 5)
 		addtimer(CALLBACK(src, PROC_REF(start_end_of_day), iteration + 1), day_transition_duration / 10)
