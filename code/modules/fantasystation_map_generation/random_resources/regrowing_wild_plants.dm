@@ -89,6 +89,7 @@
 	icon_state = "grass"
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
+	campfire_fuel_value = 30 SECONDS
 
 /// Cattails
 

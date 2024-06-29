@@ -13,6 +13,7 @@
 	force = 15
 	throwforce = 10
 	resistance_flags = FLAMMABLE
+	campfire_fuel_value = 30 SECONDS
 	/// How many variations of sprite does this have?
 	var/icon_variations = 2
 
