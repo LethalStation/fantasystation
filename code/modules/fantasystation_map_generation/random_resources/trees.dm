@@ -28,11 +28,36 @@
 	var/makes_stumps = TRUE
 	/// How many sticks this tree makes when cut down
 	var/number_of_sticks = 3
+	/// If the tree makes a dramatic sound when felled
+	var/felling_sound = 'sound/fantasystation/nature/tree_fell.ogg'
 
 /obj/structure/flora/fantasy_tree/Initialize(mapload)
 	. = ..()
 	if(seethrough)
 		AddComponent(/datum/component/seethrough, get_seethrough_map())
+
+/obj/structure/flora/fantasy_tree/can_harvest(mob/user, obj/item/harvesting_item)
+
+	if(flags_1 & HOLOGRAM_1)
+		return FALSE
+	if(harvested || !harvestable)
+		return null
+
+	if(harvesting_item)
+		//Check to see if wooden flora is being attacked by a saw item (letting the items on/off state control this is better than putting them in the list)
+		if((flora_flags & FLORA_WOODEN) && (harvesting_item.tool_behaviour == TOOL_AXE))
+			return TRUE
+		//Check to see if stone flora is being attacked by a mining item (same reason as above)
+		if((flora_flags & FLORA_STONE) && (harvesting_item.tool_behaviour == TOOL_MINING))
+			return TRUE
+		//We checked all item interactions and could not harvest, lets return
+		return FALSE
+
+	//If there was no harvesting item supplied, check if it is hand harvestable
+	if(harvest_with_hands)
+		return TRUE
+
+	return FALSE
 
 ///Return a see_through_map, examples in seethrough.dm
 /obj/structure/flora/fantasy_tree/proc/get_seethrough_map()
@@ -43,7 +68,10 @@
 	if(!makes_stumps)
 		return
 	var/turf/my_turf = get_turf(src)
-	playsound(my_turf, SFX_TREE_CHOP, 100 , FALSE, FALSE)
+	if(felling_sound)
+		playsound(my_turf, felling_sound, 100, TRUE)
+	else
+		playsound(my_turf, SFX_TREE_CHOP, 100 , FALSE)
 	var/obj/structure/flora/fantasy_tree/stump/new_stump = new(my_turf)
 	new_stump.name = "[name] stump"
 	new_stump.icon_state = "[icon_state]_stump"

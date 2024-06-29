@@ -75,7 +75,7 @@
 	worn_icon_state = "stone_axe"
 	w_class = WEIGHT_CLASS_NORMAL
 	sharpness = SHARP_EDGED
-	tool_behaviour = TOOL_SAW
+	tool_behaviour = TOOL_AXE
 	toolspeed = 1.75
 	force = 15
 	throwforce = 15

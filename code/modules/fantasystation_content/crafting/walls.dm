@@ -1,0 +1,73 @@
+/turf/closed/wall/fanasystation
+	name = "wall"
+	desc = "A huge chunk of { SPACE INTENTIONALLY LEFT BLANK } used to separate rooms."
+	icon = 'icons/obj/fantasystation_obj/walls/swamp_log.dmi'
+	icon_state = "swamp_log-0"
+	base_icon_state = "swamp_log"
+	rust_resistance = RUST_RESISTANCE_ORGANIC
+
+	baseturfs = /turf/baseturf_bottom
+
+	flags_ricochet = RICOCHET_HARD
+
+	can_engrave = TRUE
+	sheet_type = /obj/item/stack/fantasy_logs/swamp
+	sheet_amount = 1
+	girder_type = null
+	slicing_duration = 7 SECONDS
+	/// What sound the wall makes when dismantled
+	var/dismantle_sound = SFX_TREE_CHOP
+
+/turf/closed/wall/fanasystation/deconstruction_hints(mob/user)
+	return span_notice("The logs could probably be <b>hacked apart</b> with an <b>axe</b>.")
+
+/turf/closed/wall/fanasystation/dismantle_wall(devastated = FALSE, explode = FALSE)
+	if(devastated)
+		devastate_wall()
+	else
+		playsound(src, dismantle_sound, 100, TRUE)
+		var/newgirder = break_wall()
+		if(newgirder) //maybe we don't /want/ a girder!
+			transfer_fingerprints_to(newgirder)
+
+	for(var/obj/O in src.contents) //Eject contents!
+		if(istype(O, /obj/structure/sign/poster))
+			var/obj/structure/sign/poster/P = O
+			INVOKE_ASYNC(P, TYPE_PROC_REF(/obj/structure/sign/poster, roll_and_drop), src)
+	if(decon_type)
+		ChangeTurf(decon_type, flags = CHANGETURF_INHERIT_AIR)
+	else
+		ScrapeAway()
+	QUEUE_SMOOTH_NEIGHBORS(src)
+
+/turf/closed/wall/fanasystation/try_decon(obj/item/attacking_item, mob/user)
+	if(attacking_item.tool_behaviour != TOOL_AXE)
+		return FALSE
+	if(!attacking_item.tool_start_check(user, amount=round(slicing_duration / 50)))
+		return FALSE
+
+	to_chat(user, span_notice("You begin hacking through the logs..."))
+	if(attacking_item.use_tool(src, user, slicing_duration, volume=100))
+		if(iswallturf(src))
+			to_chat(user, span_notice("You break through the stacked logs."))
+			dismantle_wall()
+		return TRUE
+
+	return FALSE
+
+/// Now for the actual walls, starting with logs
+
+/turf/closed/wall/fanasystation/log
+	name = "log wall"
+	desc = "A stack of logs set in the ground to keep the outside out, and the inside in."
+	icon = 'icons/obj/fantasystation_obj/walls/log.dmi'
+	icon_state = "log-0"
+	base_icon_state = "log"
+	sheet_type = /obj/item/stack/fantasy_logs
+
+/turf/closed/wall/fanasystation/log/swamp
+	name = "swamp log wall"
+	icon = 'icons/obj/fantasystation_obj/walls/swamp_log.dmi'
+	icon_state = "swamp_log-0"
+	base_icon_state = "swamp_log"
+	sheet_type = /obj/item/stack/fantasy_logs/swamp

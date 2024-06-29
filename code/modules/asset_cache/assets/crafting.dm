@@ -68,6 +68,7 @@
 		TOOL_BLOODFILTER = icon('icons/obj/medical/surgery_tools.dmi', "bloodfilter"),
 		TOOL_ROLLINGPIN = icon('icons/obj/service/kitchen.dmi', "rolling_pin"),
 		TOOL_RUSTSCRAPER = icon('icons/obj/tools.dmi', "wirebrush"),
+		TOOL_AXE = icon('icons/obj/weapons/fireaxe.dmi', "fireaxe1"),
 	)
 
 	for(var/tool in tool_icons)
