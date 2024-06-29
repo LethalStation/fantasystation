@@ -1,4 +1,4 @@
-/turf/closed/wall/fanasystation
+/turf/closed/wall/fantasystation
 	name = "wall"
 	desc = "A huge chunk of { SPACE INTENTIONALLY LEFT BLANK } used to separate rooms."
 	icon = 'icons/obj/fantasystation_obj/walls/swamp_log.dmi'
@@ -18,10 +18,10 @@
 	/// What sound the wall makes when dismantled
 	var/dismantle_sound = SFX_TREE_CHOP
 
-/turf/closed/wall/fanasystation/deconstruction_hints(mob/user)
+/turf/closed/wall/fantasystation/deconstruction_hints(mob/user)
 	return span_notice("The logs could probably be <b>hacked apart</b> with an <b>axe</b>.")
 
-/turf/closed/wall/fanasystation/dismantle_wall(devastated = FALSE, explode = FALSE)
+/turf/closed/wall/fantasystation/dismantle_wall(devastated = FALSE, explode = FALSE)
 	if(devastated)
 		devastate_wall()
 	else
@@ -40,7 +40,7 @@
 		ScrapeAway()
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
-/turf/closed/wall/fanasystation/try_decon(obj/item/attacking_item, mob/user)
+/turf/closed/wall/fantasystation/try_decon(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour != TOOL_AXE)
 		return FALSE
 	if(!attacking_item.tool_start_check(user, amount=round(slicing_duration / 50)))
@@ -57,7 +57,7 @@
 
 /// Now for the actual walls, starting with logs
 
-/turf/closed/wall/fanasystation/log
+/turf/closed/wall/fantasystation/log
 	name = "log wall"
 	desc = "A stack of logs set in the ground to keep the outside out, and the inside in."
 	icon = 'icons/obj/fantasystation_obj/walls/log.dmi'
@@ -65,7 +65,7 @@
 	base_icon_state = "log"
 	sheet_type = /obj/item/stack/fantasy_logs
 
-/turf/closed/wall/fanasystation/log/swamp
+/turf/closed/wall/fantasystation/log/swamp
 	name = "swamp log wall"
 	icon = 'icons/obj/fantasystation_obj/walls/swamp_log.dmi'
 	icon_state = "swamp_log-0"
