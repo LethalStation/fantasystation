@@ -13,9 +13,33 @@
 	force = 15
 	throwforce = 10
 	resistance_flags = FLAMMABLE
+	campfire_fuel_value = 30 SECONDS
 	/// How many variations of sprite does this have?
 	var/icon_variations = 2
+	/// What are the slapcraft recipes for this item?
+	var/list/slapcraft_recipe_list = list(
+		/datum/crafting_recipe/fantasystation/stick_firestarter,
+	)
 
 /obj/item/vintage_stick/Initialize(mapload)
 	. = ..()
 	icon_state = "[base_icon_state]_[rand(1, icon_variations)]"
+	if(length(slapcraft_recipe_list))
+		AddComponent(
+			/datum/component/slapcrafting,\
+			slapcraft_recipes = slapcraft_recipe_list,\
+		)
+
+/// Crafting recipe for slapcraft stuff involving sticks
+
+/datum/crafting_recipe/fantasystation/stick_firestarter
+	name = "firestarter"
+	desc = "Rubbing sticks together quite a lot makes them hot enough to start fires in the right conditions."
+	reqs = list(
+		/obj/item/vintage_stick = 2,
+		/obj/item/fantasy_cut_grass = 1,
+	)
+	result = /obj/item/fantasy_firestarter
+	time = 5 SECONDS
+	recipe_completion_sound = 'sound/items/hammering_wood.ogg'
+	category = CAT_TOOLS

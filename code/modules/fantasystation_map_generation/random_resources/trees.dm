@@ -148,7 +148,7 @@
 	playsound(src, SFX_CRUNCHY_BUSH_WHACK, 50, vary = TRUE)
 
 /obj/structure/flora/fantasy_tree/pet_bush/get_seethrough_map()
-	return SEE_THROUGH_MAP_DEFAULT
+	return SEE_THROUGH_MAP_JUST_THE_OBJECT_TILE
 
 /obj/structure/flora/fantasy_tree/pet_bush/swamp
 	name = "swamp bush"

@@ -14,6 +14,8 @@
 #define SEE_THROUGH_MAP_SHIPPING_CONTAINER "shipping_container"
 ///Seethrough component for the ratvar wreck, in shape of the ratvar wreck
 #define SEE_THROUGH_MAP_RATVAR_WRECK "ratvar"
+/// Seethrough component for just the object, nothing else
+#define SEE_THROUGH_MAP_JUST_THE_OBJECT_TILE "just_one_more_thing"
 
 
 /**global statics for the see_through_component coordinate maps
@@ -27,6 +29,11 @@ GLOBAL_LIST_INIT(see_through_maps, list(
 	// A
 	SEE_THROUGH_MAP_DEFAULT = list(
 	/*----------------*/list(0, 1, 0),
+	/*----------------*/list(0, 0, 0)
+	),
+
+	// A
+	SEE_THROUGH_MAP_JUST_THE_OBJECT_TILE = list(
 	/*----------------*/list(0, 0, 0)
 	),
 

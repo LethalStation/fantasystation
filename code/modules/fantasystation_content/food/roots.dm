@@ -1,21 +1,9 @@
 /// River reed roots
 
-/obj/item/seeds/fantasy_river_reed
-	name = "debug river reed seeds"
-	desc = "You're not supposed to be here. - Jesus, shortly after catching you time travelling."
-	icon_state = "seed-kronkus"
-	product = /obj/item/food/grown/river_reed_root
-	reagents_add = list(
-		/datum/reagent/consumable/nutriment/cloth_fibers = 0.04,
-		/datum/reagent/consumable/nutriment = 0.1,
-	)
-
-/obj/item/food/grown/river_reed_root
+/obj/item/food/fantasy_grown/river_reed_root
 	name = "river reed root"
 	desc = "The root of a river reed, not the tastiest thing around but it'll work for food. You can use these on water to plant them."
-	icon = 'icons/obj/fantasystation_obj/harvested_plants.dmi'
 	icon_state = "cattail_root"
-	seed = /obj/item/seeds/fantasy_river_reed
 	foodtypes = VEGETABLES
 	plant_to_make = /obj/structure/flora/fantasy_regrowing/cattail/ungrown
 	turfs_we_plant_on = list(
@@ -26,26 +14,36 @@
 		"dirt" = 2,
 		"sugary water" = 1,
 	)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+		/datum/reagent/consumable/sugar = 1,
+	)
+
+/obj/item/food/fantasy_grown/river_reed_root/make_grillable()
+	AddComponent(/datum/component/grillable, /obj/item/food/fantasy_grown/river_reed_root/cooked, rand(60 SECONDS, 90 SECONDS), TRUE, TRUE)
+
+/obj/item/food/fantasy_grown/river_reed_root/cooked
+	name = "baked river reed root"
+	desc = "The root of a river reed, this one appears to have been cooked over a fire or in an oven to make it more palatable."
+	icon_state = "cattail_root_cooked"
+	plant_to_make = null
+	turfs_we_plant_on = list()
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/nutriment/vitamin = 3,
+		/datum/reagent/consumable/sugar = 2,
+	)
+
+/obj/item/food/fantasy_grown/river_reed_root/cooked/make_grillable()
+	return
 
 /// Muckroot
 
-/obj/item/seeds/fantasy_muckroot_seed
-	name = "debug muckroot seeds"
-	desc = "You're not supposed to be here. - Jesus, shortly after catching you time travelling."
-	icon_state = "seed-kronkus"
-	product = /obj/item/food/grown/fantasy_muckroot
-	reagents_add = list(
-		/datum/reagent/consumable/nutriment/cloth_fibers = 0.06,
-		/datum/reagent/consumable/nutriment/vitamin = 0.04,
-		/datum/reagent/consumable/nutriment = 0.1,
-	)
-
-/obj/item/food/grown/fantasy_muckroot
+/obj/item/food/fantasy_grown/fantasy_muckroot
 	name = "muckroot"
 	desc = "The root of the aptly named muckroot plant, not the most appetizing meal in the world but its better than rocks."
-	icon = 'icons/obj/fantasystation_obj/harvested_plants.dmi'
 	icon_state = "muckroot"
-	seed = /obj/item/seeds/fantasy_muckroot_seed
 	foodtypes = VEGETABLES
 	turfs_we_plant_on = list(
 		/turf/open/misc/muck_slop,
@@ -57,3 +55,26 @@
 		"dirt" = 2,
 		"sugary water" = 1,
 	)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 2,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+		/datum/reagent/consumable/sugar = 2,
+	)
+
+/obj/item/food/fantasy_grown/fantasy_muckroot/make_grillable()
+	AddComponent(/datum/component/grillable, /obj/item/food/fantasy_grown/fantasy_muckroot/cooked, rand(60 SECONDS, 90 SECONDS), TRUE, TRUE)
+
+/obj/item/food/fantasy_grown/fantasy_muckroot/cooked
+	name = "baked muckroot"
+	desc = "The root of the aptly named muckroot plant, this one has been baked in an oven or over a fire to make it more palatable."
+	icon_state = "muckroot_cooked"
+	turfs_we_plant_on = list()
+	plant_to_make = null
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 3,
+		/datum/reagent/consumable/nutriment/vitamin = 3,
+		/datum/reagent/consumable/sugar = 3,
+	)
+
+/obj/item/food/fantasy_grown/fantasy_muckroot/cooked/make_grillable()
+	return
