@@ -4072,6 +4072,7 @@
 #include "code\modules\explorer_drone\exploration_events\fluff.dm"
 #include "code\modules\explorer_drone\exploration_events\resource.dm"
 #include "code\modules\explorer_drone\exploration_events\trader.dm"
+#include "code\modules\fantasystation_content\clothing\backpack.dm"
 #include "code\modules\fantasystation_content\crafting\crafting_recipe_fantasy.dm"
 #include "code\modules\fantasystation_content\crafting\fire.dm"
 #include "code\modules\fantasystation_content\crafting\palisade.dm"

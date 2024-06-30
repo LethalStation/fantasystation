@@ -43,3 +43,16 @@
 	time = 5 SECONDS
 	recipe_completion_sound = 'sound/items/hammering_wood.ogg'
 	category = CAT_TOOLS
+
+/// Stick recipes that aren't slapcraft
+
+/datum/crafting_recipe/fantasystation/stick_backsket
+	name = "stick pack-basket"
+	desc = "A large basket made of woven sticks that you can wear on your back."
+	reqs = list(
+		/obj/item/vintage_stick = 9,
+	)
+	result = /obj/item/storage/backpack/fantasy/sticks
+	time = 15 SECONDS
+	recipe_completion_sound = 'sound/items/hammering_wood.ogg'
+	category = CAT_EQUIPMENT

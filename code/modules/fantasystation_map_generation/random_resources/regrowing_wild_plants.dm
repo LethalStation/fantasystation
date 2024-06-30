@@ -124,6 +124,19 @@
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
 
+/// Crafting recipes with river reeds
+
+/datum/crafting_recipe/fantasystation/reed_backsket
+	name = "reed pack-basket"
+	desc = "A large basket made of river reeds that you can wear on your back."
+	reqs = list(
+		/obj/item/fantasy_cut_cattail = 5,
+	)
+	result = /obj/item/storage/backpack/fantasy
+	time = 15 SECONDS
+	recipe_completion_sound = 'sound/items/hammering_wood.ogg'
+	category = CAT_EQUIPMENT
+
 /// Muckroot
 
 /obj/structure/flora/fantasy_regrowing/muckroot

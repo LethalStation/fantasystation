@@ -15,8 +15,8 @@
 			BIOME_HIGH_HUMIDITY = /datum/biome/fantasy_the_slop,
 		),
 		BIOME_HIGH_HEAT = list(
-			BIOME_LOW_HUMIDITY = /datum/biome/fantasy_desert,
-			BIOME_MEDIUM_HUMIDITY = /datum/biome/fantasy_cracked_earth,
+			BIOME_LOW_HUMIDITY = /datum/biome/fantasy_cracked_earth,
+			BIOME_MEDIUM_HUMIDITY = /datum/biome/fantasy_grassland,
 			BIOME_HIGH_HUMIDITY = /datum/biome/fantasy_grassy,
 		)
 	)
