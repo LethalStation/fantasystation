@@ -236,6 +236,7 @@
 		/datum/job/shaft_miner = /obj/item/organ/internal/monster_core/rush_gland,
 		/datum/job/station_engineer = /obj/item/organ/internal/cyberimp/arm/toolset,
 		/datum/job/warden = /obj/item/organ/internal/cyberimp/eyes/hud/security,
+		/datum/job/dweller = /obj/item/organ/internal/eyes/robotic/glow,
 	)
 
 /datum/station_trait/cybernetic_revolution/New()
