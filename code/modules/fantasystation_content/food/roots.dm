@@ -78,3 +78,46 @@
 
 /obj/item/food/fantasy_grown/fantasy_muckroot/cooked/make_grillable()
 	return
+
+/// Hideroot
+
+/obj/item/food/fantasy_grown/hideroot
+	name = "hideroot"
+	desc = "The root of the similarly named hideroot plant, edible but toxic until cooked extensively."
+	icon_state = "hideroot"
+	foodtypes = VEGETABLES
+	turfs_we_plant_on = list(
+		/turf/open/misc/regular_soil,
+		/turf/open/misc/muck_slop,
+	)
+	plant_to_make = /obj/structure/flora/fantasy_regrowing/hideroot/ungrown
+	tastes = list(
+		"starch" = 3,
+		"dirt" = 2,
+		"bitterness" = 1,
+	)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/toxin = 4,
+	)
+
+/obj/item/food/fantasy_grown/hideroot/make_grillable()
+	AddComponent(/datum/component/grillable, /obj/item/food/fantasy_grown/hideroot, rand(90 SECONDS, 140 SECONDS), TRUE, TRUE)
+
+/obj/item/food/fantasy_grown/hideroot/cooked
+	name = "cooked hideroot"
+	desc = "The root of the similarly named hideroot plant, this one has been cooked extensively enough that the toxins within have been neutralized."
+	icon_state = "hideroot_cooked"
+	turfs_we_plant_on = list()
+	plant_to_make = null
+	tastes = list(
+		"starch" = 3,
+		"dirt" = 2,
+	)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 5,
+		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+
+/obj/item/food/fantasy_grown/hideroot/cooked/make_grillable()
+	return

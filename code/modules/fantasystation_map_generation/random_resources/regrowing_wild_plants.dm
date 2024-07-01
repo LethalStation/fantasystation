@@ -31,6 +31,19 @@
 	if(spawns_harvested)
 		set_harvested_on_spawn()
 
+/obj/structure/flora/fantasy_regrowing/get_products_list()
+	if(!LAZYLEN(product_types))
+		return list()
+	var/list/product_list = list()
+
+	for(var/obj/harvest_object in product_types)
+		var/harvest_amount = rand(harvest_amount_low, harvest_amount_high)
+		for(var/iteration in 1 to harvest_amount)
+			if(!product_list[harvest_object])
+				product_list[harvest_object] = 0
+			product_list[harvest_object]++
+	return product_list
+
 /obj/structure/flora/fantasy_regrowing/cattail/atom_deconstruct(disassembled)
 	new /obj/item/fantasy_cut_grass(drop_location())
 
@@ -159,4 +172,86 @@
 	delete_on_harvest = TRUE
 
 /obj/structure/flora/fantasy_regrowing/muckroot/ungrown
+	spawns_harvested = TRUE
+
+/// Ratweed
+
+/obj/structure/flora/fantasy_regrowing/ratweed
+	name = "ratweed"
+	desc = "A diminutive leafy green that grows in damp and shaded conditions, which tend to be where rats are also present, thus the name. \
+		Both it's seeds and leaves are edible."
+	harvested_name = "ratweed sprout"
+	harvested_desc = "A still-growing stem of the ratweed plant."
+	icon = 'icons/obj/fantasystation_obj/plants.dmi'
+	icon_state = "rat_weed"
+	base_icon_state = "rat_weed"
+	harvest_icon_state = "rat_weed_growing"
+	product_types = list(
+		/obj/item/food/fantasy_grown/ratweed_leaf = 1
+		/obj/item/food/fantasy_grown/ratweed_seeds = 1,
+	)
+	harvest_message_low = "You pull up the ratweed."
+	harvest_message_med = "You pull up the ratweed."
+	harvest_message_high = "You pull up the ratweed."
+	harvest_verb = "pull"
+	harvest_verb_suffix = "s up"
+	knife_harvest = FALSE
+	harvest_with_hands = TRUE
+	delete_on_harvest = TRUE
+
+/obj/structure/flora/fantasy_regrowing/ratweed/ungrown
+	spawns_harvested = TRUE
+
+/// Groundnuts
+
+/obj/structure/flora/fantasy_regrowing/groundnut
+	name = "wetland groundnut"
+	desc = "A plant common to wetlands that hangs low to the ground, producing edible nuts that make for good roasting."
+	harvested_name = "harvested wetland groundnut"
+	harvested_desc = "A plant common to wetlands that hangs low to the ground, producing edible nuts that make for good roasting. This one has recently been picked or is still growing."
+	icon = 'icons/obj/fantasystation_obj/plants.dmi'
+	icon_state = "groundnuts"
+	base_icon_state = "groundnuts"
+	harvest_icon_state = "groundnuts_growing"
+	product_types = list(
+		/obj/item/food/fantasy_grown/groundnut = 1,
+	)
+	harvest_message_low = "You pick some of the groundnuts."
+	harvest_message_med = "You pick some of the groundnuts."
+	harvest_message_high = "You pick some of the groundnuts."
+	harvest_verb = "pick"
+	harvest_verb_suffix = "s"
+	knife_harvest = FALSE
+	harvest_with_hands = TRUE
+	delete_on_harvest = FALSE
+	regrowth_time_low = 18 MINUTES
+	regrowth_time_high = 25 MINUTES
+
+/obj/structure/flora/fantasy_regrowing/groundnut/ungrown
+	spawns_harvested = TRUE
+
+/// Hideroot
+
+/obj/structure/flora/fantasy_regrowing/hideroot
+	name = "hideroot growth"
+	desc = "A leafy plant with thick roots wrapped in a tough bark-like material, like a strong animal's hide."
+	harvested_name = "hideroot sprout"
+	harvested_desc = "A leafy plant with thick roots wrapped in a tough bark-like material, like a strong animal's hide. This one looks short and is likely still growing"
+	icon = 'icons/obj/fantasystation_obj/plants.dmi'
+	icon_state = "hideroot"
+	base_icon_state = "hideroot"
+	harvest_icon_state = "groundnuts_growing"
+	product_types = list(
+		/obj/item/food/fantasy_grown/hideroot = 1,
+	)
+	harvest_message_low = "You pull up the hideroot."
+	harvest_message_med = "You pull up the hideroot."
+	harvest_message_high = "You pull up the hideroot."
+	harvest_verb = "pull"
+	harvest_verb_suffix = "s up"
+	knife_harvest = FALSE
+	harvest_with_hands = TRUE
+	delete_on_harvest = TRUE
+
+/obj/structure/flora/fantasy_regrowing/hideroot/ungrown
 	spawns_harvested = TRUE
