@@ -187,7 +187,7 @@
 	base_icon_state = "rat_weed"
 	harvest_icon_state = "rat_weed_growing"
 	product_types = list(
-		/obj/item/food/fantasy_grown/ratweed_leaf = 1
+		/obj/item/food/fantasy_grown/ratweed_leaf = 1,
 		/obj/item/food/fantasy_grown/ratweed_seeds = 1,
 	)
 	harvest_message_low = "You pull up the ratweed."
