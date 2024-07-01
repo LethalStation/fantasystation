@@ -31,19 +31,6 @@
 	if(spawns_harvested)
 		set_harvested_on_spawn()
 
-/obj/structure/flora/fantasy_regrowing/get_products_list()
-	if(!LAZYLEN(product_types))
-		return list()
-	var/list/product_list = list()
-
-	for(var/obj/harvest_object in product_types)
-		var/harvest_amount = rand(harvest_amount_low, harvest_amount_high)
-		for(var/iteration in 1 to harvest_amount)
-			if(!product_list[harvest_object])
-				product_list[harvest_object] = 0
-			product_list[harvest_object]++
-	return product_list
-
 /obj/structure/flora/fantasy_regrowing/cattail/atom_deconstruct(disassembled)
 	new /obj/item/fantasy_cut_grass(drop_location())
 
@@ -190,6 +177,8 @@
 		/obj/item/food/fantasy_grown/ratweed_leaf = 1,
 		/obj/item/food/fantasy_grown/ratweed_seeds = 1,
 	)
+	harvest_amount_low = 3
+	harvest_amount_high = 5
 	harvest_message_low = "You pull up the ratweed."
 	harvest_message_med = "You pull up the ratweed."
 	harvest_message_high = "You pull up the ratweed."
@@ -216,6 +205,8 @@
 	product_types = list(
 		/obj/item/food/fantasy_grown/groundnut = 1,
 	)
+	harvest_amount_low = 2
+	harvest_amount_high = 4
 	harvest_message_low = "You pick some of the groundnuts."
 	harvest_message_med = "You pick some of the groundnuts."
 	harvest_message_high = "You pick some of the groundnuts."
