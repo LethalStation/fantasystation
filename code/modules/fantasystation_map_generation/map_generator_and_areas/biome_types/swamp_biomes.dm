@@ -4,6 +4,7 @@
 	flora_types = list(
 		/obj/structure/flora/fantasy_regrowing = 2,
 		/obj/structure/flora/fantasy_regrowing/cattail = 1,
+		/obj/structure/flora/fantasy_regrowing/ratweed = 1,
 		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 1,
 	)
 	feature_types = list(
@@ -14,7 +15,7 @@
 	)
 	fauna_types = list()
 
-	flora_density = 25
+	flora_density = 30
 	feature_density = 10
 	fauna_density = 0
 
@@ -43,6 +44,7 @@
 		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 3,
 		/obj/structure/flora/fantasy_tree/swamp/random_icon = 2,
 		/obj/structure/flora/fantasy_regrowing/muckroot = 1,
+		/obj/structure/flora/fantasy_regrowing/hideroot = 1,
 	)
 	feature_types = list(
 		/obj/item/vintage_stick = 3,
@@ -62,6 +64,8 @@
 	flora_types = list(
 		/obj/structure/flora/fantasy_tree/stump/swamp/random_icon = 1,
 		/obj/structure/flora/fantasy_tree/swamp/random_icon = 2,
+		/obj/structure/flora/fantasy_regrowing/groundnut = 1,
+		/obj/structure/flora/fantasy_regrowing/hideroot = 1,
 		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 5,
 		/obj/structure/flora/fantasy_regrowing = 8,
 	)

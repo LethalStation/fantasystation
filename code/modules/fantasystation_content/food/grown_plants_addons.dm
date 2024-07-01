@@ -13,6 +13,9 @@
 		for(var/turf/plantable_turf in turfs_we_plant_on)
 			. += span_notice("- [plantable_turf.name]")
 
+/obj/item/food/fantasy_grown/make_germ_sensitive(mapload)
+	return
+
 /obj/item/food/fantasy_grown/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	. = ..()
 	if(length(turfs_we_plant_on) && plant_to_make)
