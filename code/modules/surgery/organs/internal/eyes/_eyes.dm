@@ -63,11 +63,11 @@
 	AddComponent(/datum/component/scope, range_modifier = range_power)
 
 /obj/item/organ/internal/eyes/ui_action_click(mob/user, actiontype)
-	if (istype(actiontype, /datum/action/item_action/organ_action/toggle))
-		toggle_active(user)
+	if(istype(actiontype, /datum/action/item_action/organ_action/toggle))
+		toggle_eye_zoom_active(user)
 
 /// Toggles the scope vision thing for eyes
-/obj/item/organ/internal/eyes/proc/toggle_active(mob/user)
+/obj/item/organ/internal/eyes/proc/toggle_eye_zoom_active(mob/user)
 	var/datum/component/scope/zoom = src.GetComponent(/datum/component/scope)
 	if (zoomed)
 		zoom.stop_zooming(user)
