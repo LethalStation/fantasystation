@@ -43,8 +43,6 @@
 /turf/closed/wall/fantasystation/try_decon(obj/item/attacking_item, mob/user)
 	if(attacking_item.tool_behaviour != TOOL_AXE)
 		return FALSE
-	if(!attacking_item.tool_start_check(user, amount=round(slicing_duration / 50)))
-		return FALSE
 
 	to_chat(user, span_notice("You begin hacking through the logs..."))
 	if(attacking_item.use_tool(src, user, slicing_duration, volume=100))

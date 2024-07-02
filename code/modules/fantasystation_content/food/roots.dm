@@ -102,7 +102,7 @@
 	)
 
 /obj/item/food/fantasy_grown/hideroot/make_grillable()
-	AddComponent(/datum/component/grillable, /obj/item/food/fantasy_grown/hideroot, rand(90 SECONDS, 140 SECONDS), TRUE, TRUE)
+	AddComponent(/datum/component/grillable, /obj/item/food/fantasy_grown/hideroot/cooked, rand(90 SECONDS, 140 SECONDS), TRUE, TRUE)
 
 /obj/item/food/fantasy_grown/hideroot/cooked
 	name = "cooked hideroot"
