@@ -177,7 +177,7 @@
 	return assoc_to_keys_features(SSaccessories.underwear_list)
 
 /datum/preference/choiced/underwear/create_default_value()
-	return /datum/sprite_accessory/underwear/nude
+	return /datum/sprite_accessory/underwear/nude::name
 
 /datum/preference/choiced/underwear/icon_for(value)
 	var/static/icon/lower_half
