@@ -137,7 +137,11 @@
 			var/atom/movable/burned_movable = burn_target
 			if(grill && isitem(burned_movable))
 				var/obj/item/grilled_item = burned_movable
-				SEND_SIGNAL(grilled_item, COMSIG_ITEM_GRILL_PROCESS, src, seconds_per_tick) //Not a big fan, maybe make this use fire_act() in the future.
+				SEND_SIGNAL(grilled_item, COMSIG_ITEM_GRILL_PROCESS, src, seconds_per_tick)
+				continue
+			if(grill && is_reagent_container(burned_movable))
+				var/obj/item/reagent_containers/heated_item = burned_movable
+				heated_item.reagents.expose_temperature(SOUP_BURN_TEMP + 80, 0.033)
 				continue
 			burned_movable.fire_act(1000, 250 * seconds_per_tick)
 
