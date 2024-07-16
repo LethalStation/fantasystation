@@ -2,7 +2,7 @@
 
 /turf/open/floor/fantasy_organic
 	name = "grass floor mat"
-	desc = "A woven mat made of dried grass."
+	desc = "A woven mat made of dried grass. Can be cut apart with a knife."
 	icon = 'icons/obj/fantasystation_obj/floors/grassmat.dmi'
 	icon_state = "grassmat-0"
 	base_icon_state = "grassmat"
@@ -39,7 +39,7 @@
 
 /turf/open/floor/fantasy_organic/reed
 	name = "reed floor mat"
-	desc = "A woven mat made of river reeds."
+	desc = "A woven mat made of river reeds. Can be cut apart with a knife."
 	icon = 'icons/obj/fantasystation_obj/floors/reedmat.dmi'
 	icon_state = "reedmat-0"
 	base_icon_state = "reedmat"
