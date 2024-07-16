@@ -16,7 +16,7 @@
 	throwforce = 18
 	throw_speed = 4
 	demolition_mod = 0.75
-	embedding = list("impact_pain_mult" = 2, "remove_pain_mult" = 4, "jostle_chance" = 2.5)
+	embed_type = /datum/embed_data/spear
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
 	attack_verb_simple = list("attack", "poke", "jab", "tear", "lacerate", "gore")
 	hitsound = 'sound/weapons/bladeslice.ogg'
@@ -82,7 +82,7 @@
 	throw_speed = 4
 	throw_range = 7
 	demolition_mod = 1.5
-	embedding = list("pain_mult" = 4, "embed_chance" = 35, "fall_chance" = 10)
+	embed_type = /datum/embed_data/hatchet
 	attack_verb_continuous = list("chops", "tears", "lacerates", "cuts")
 	attack_verb_simple = list("chop", "tear", "lacerate", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'

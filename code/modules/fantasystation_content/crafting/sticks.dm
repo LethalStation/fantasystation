@@ -25,8 +25,8 @@
 	. = ..()
 	icon_state = "[base_icon_state]_[rand(1, icon_variations)]"
 	if(length(slapcraft_recipe_list))
-		AddComponent(
-			/datum/component/slapcrafting,\
+		AddElement(
+			/datum/element/slapcrafting,\
 			slapcraft_recipes = slapcraft_recipe_list,\
 		)
 
