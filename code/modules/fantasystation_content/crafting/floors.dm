@@ -9,8 +9,8 @@
 	baseturfs = /turf/baseturf_bottom // These shouldnt be map placed ever but just in case
 	floor_tile = null
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_TURF_OPEN
-	canSmoothWith = null
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_GRASS_MAT
+	canSmoothWith = SGROUP_GRASS_MAT
 	flags_1 = NONE
 	footstep = FOOTSTEP_GRASS
 	barefootstep = FOOTSTEP_GRASS
@@ -43,3 +43,5 @@
 	icon_state = "reedmat-0"
 	base_icon_state = "reedmat"
 	torn_up_result = /obj/item/fantasy_cut_cattail
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_REED_MAT
+	canSmoothWith = SGROUP_REED_MAT

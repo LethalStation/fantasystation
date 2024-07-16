@@ -101,7 +101,7 @@
 /obj/item/fantasy_cut_grass/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isturf(interacting_with))
 		return NONE
-	if(!ismiscturf(interacting_with))
+	if(istype(interacting_with, /turf/open/floor))
 		return NONE
 	place_floor_mat(interacting_with, user)
 	return ITEM_INTERACT_SUCCESS
