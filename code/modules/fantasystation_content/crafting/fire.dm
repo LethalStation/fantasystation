@@ -135,7 +135,7 @@
 			burn_victim.ignite_mob()
 		else
 			var/atom/movable/burned_movable = burn_target
-			if(grill && isitem(burned_movable))
+			if(grill && isitem(burned_movable) && !is_reagent_container(burned_movable))
 				var/obj/item/grilled_item = burned_movable
 				SEND_SIGNAL(grilled_item, COMSIG_ITEM_GRILL_PROCESS, src, seconds_per_tick)
 				continue
