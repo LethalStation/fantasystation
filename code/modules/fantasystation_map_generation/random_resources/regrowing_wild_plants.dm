@@ -101,7 +101,7 @@
 /obj/item/fantasy_cut_grass/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isturf(interacting_with))
 		return NONE
-	if(!ismiscturf(interacting_with))
+	if(istype(interacting_with, /turf/open/floor))
 		return NONE
 	place_floor_mat(interacting_with, user)
 	return ITEM_INTERACT_SUCCESS
@@ -110,7 +110,10 @@
 /obj/item/fantasy_cut_grass/proc/place_floor_mat(turf/mat_target, mob/living/user)
 	if(!do_after(user, 3 SECONDS, mat_target))
 		return
+	if(QDELETED(src))
+		return
 	mat_target.place_on_top(place_turf_type, flags = CHANGETURF_INHERIT_AIR)
+	qdel(src)
 
 /// Cattails
 
@@ -164,7 +167,10 @@
 /obj/item/fantasy_cut_cattail/proc/place_floor_mat(turf/mat_target, mob/living/user)
 	if(!do_after(user, 3 SECONDS, mat_target))
 		return
+	if(QDELETED(src))
+		return
 	mat_target.place_on_top(place_turf_type, flags = CHANGETURF_INHERIT_AIR)
+	qdel(src)
 
 /// Crafting recipes with river reeds
 

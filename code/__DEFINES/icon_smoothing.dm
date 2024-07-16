@@ -146,8 +146,10 @@ DEFINE_BITFIELD(smoothing_junction, list(
 #define SGROUP_FIRE_CLAY S_TURF(104)
 #define SGROUP_FANTASY_GRASS S_TURF(105)
 
+#define SGROUP_GRASS_MAT S_TURF(106)
+#define SGROUP_REED_MAT S_TURF(107)
 
-#define MAX_S_TURF 105 //Always match this value with the one above it.
+#define MAX_S_TURF 107 //Always match this value with the one above it.
 
 #define S_OBJ(num) ("-" + #num + ",")
 /* /obj included */
