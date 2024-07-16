@@ -183,44 +183,44 @@
 
 /obj/item/reagent_containers/cup/bowl/clayware/crock/examine(mob/user)
 	. = ..()
-	if(cap_on)
+	if(lid_on)
 		. += span_notice("The lid is firmly sealed on. <b>Alt-Click</b> to remove the cap.")
 	else
 		. += span_notice("The lid has been taken off. <b>Alt-Click</b> to put a cap on.")
 
 /obj/item/reagent_containers/cup/bowl/clayware/crock/click_alt(mob/user)
-	if(cap_on)
-		cap_on = FALSE
+	if(lid_on)
+		lid_on = FALSE
 		spillable = TRUE
 		to_chat(user, span_notice("You remove the lid from [src] with a satisfying pop."))
 		playsound(loc, 'sound/effects/pop.ogg', 50, TRUE)
 	else
-		cap_on = TRUE
+		lid_on = TRUE
 		spillable = FALSE
 		to_chat(user, span_notice("You seal the lid onto [src]."))
 	update_appearance()
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/reagent_containers/cup/bowl/clayware/crock/is_refillable()
-	if(cap_on)
+	if(lid_on)
 		return FALSE
 	return ..()
 
 /obj/item/reagent_containers/cup/bowl/clayware/crock/is_drainable()
-	if(cap_on)
+	if(lid_on)
 		return FALSE
 	return ..()
 
 /obj/item/reagent_containers/cup/bowl/clayware/crock/attack(mob/target, mob/living/user, def_zone)
 	if(!target)
 		return
-	if(cap_on && reagents.total_volume && istype(target))
+	if(lid_on && reagents.total_volume && istype(target))
 		to_chat(user, span_warning("You must remove the lid before you can do that!"))
 		return
 	return ..()
 
 /obj/item/reagent_containers/cup/bowl/clayware/crock/interact_with_atom(atom/target, mob/living/user, list/modifiers)
-	if(cap_on && (target.is_refillable() || target.is_drainable() || (reagents.total_volume && !user.combat_mode)))
+	if(lid_on && (target.is_refillable() || target.is_drainable() || (reagents.total_volume && !user.combat_mode)))
 		to_chat(user, span_warning("You must remove the lid before you can do that!"))
 		return ITEM_INTERACT_BLOCKING
 	return ..()
