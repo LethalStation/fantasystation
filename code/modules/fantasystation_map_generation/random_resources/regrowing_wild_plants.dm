@@ -90,6 +90,22 @@
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
 	campfire_fuel_value = 30 SECONDS
+	/// Type of turf we place when used on another open turf
+	var/turf/place_turf_type = /turf/open/floor/fantasy_organic
+
+/obj/item/fantasy_cut_grass/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isturf(interacting_with))
+		return NONE
+	if(!ismiscturf(interacting_with))
+		return NONE
+	place_floor_mat(interacting_with, user)
+	return ITEM_INTERACT_SUCCESS
+
+/// Places the floor mat tile on the given turf if the do_after passes
+/obj/item/fantasy_cut_grass/proc/place_floor_mat(turf/mat_target, mob/living/user)
+	if(!do_after(user, 3 SECONDS, mat_target))
+		return
+	mat_target.place_on_top(place_turf_type, flags = CHANGETURF_INHERIT_AIR)
 
 /// Cattails
 
@@ -123,6 +139,22 @@
 	icon_state = "cattails"
 	resistance_flags = FLAMMABLE
 	w_class = WEIGHT_CLASS_SMALL
+	/// Type of turf we place when used on another open turf
+	var/turf/place_turf_type = /turf/open/floor/fantasy_organic/reed
+
+/obj/item/fantasy_cut_cattail/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(!isturf(interacting_with))
+		return NONE
+	if(!ismiscturf(interacting_with))
+		return NONE
+	place_floor_mat(interacting_with, user)
+	return ITEM_INTERACT_SUCCESS
+
+/// Places the floor mat tile on the given turf if the do_after passes
+/obj/item/fantasy_cut_cattail/proc/place_floor_mat(turf/mat_target, mob/living/user)
+	if(!do_after(user, 3 SECONDS, mat_target))
+		return
+	mat_target.place_on_top(place_turf_type, flags = CHANGETURF_INHERIT_AIR)
 
 /// Crafting recipes with river reeds
 

@@ -4118,6 +4118,7 @@
 #include "code\modules\fantasystation_content\clothing\backpack.dm"
 #include "code\modules\fantasystation_content\crafting\crafting_recipe_fantasy.dm"
 #include "code\modules\fantasystation_content\crafting\fire.dm"
+#include "code\modules\fantasystation_content\crafting\floors.dm"
 #include "code\modules\fantasystation_content\crafting\palisade.dm"
 #include "code\modules\fantasystation_content\crafting\rock_and_stone.dm"
 #include "code\modules\fantasystation_content\crafting\sticks.dm"
