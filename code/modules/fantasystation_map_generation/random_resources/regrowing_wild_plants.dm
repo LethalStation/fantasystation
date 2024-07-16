@@ -93,6 +93,11 @@
 	/// Type of turf we place when used on another open turf
 	var/turf/place_turf_type = /turf/open/floor/fantasy_organic
 
+/obj/item/fantasy_cut_grass/examine(mob/user)
+	. = ..()
+	. += span_notice("Using this on <b>bare terrain</b> will make flooring.")
+	return .
+
 /obj/item/fantasy_cut_grass/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isturf(interacting_with))
 		return NONE
@@ -141,6 +146,11 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// Type of turf we place when used on another open turf
 	var/turf/place_turf_type = /turf/open/floor/fantasy_organic/reed
+
+/obj/item/fantasy_cut_cattail/examine(mob/user)
+	. = ..()
+	. += span_notice("Using this on <b>bare terrain</b> will make flooring.")
+	return .
 
 /obj/item/fantasy_cut_cattail/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!isturf(interacting_with))
