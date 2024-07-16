@@ -89,7 +89,6 @@
 		/obj/item/fantasy_clay = 2,
 	)
 	result = /obj/item/fantasy_clay_unfired/bowl
-	result_amount = 2
 	time = 5 SECONDS
 	category = CAT_CONTAINERS
 
@@ -113,7 +112,6 @@
 		/obj/item/fantasy_clay = 2,
 	)
 	result = /obj/item/fantasy_clay_unfired/crock
-	result_amount = 2
 	time = 5 SECONDS
 	category = CAT_CONTAINERS
 
