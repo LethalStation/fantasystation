@@ -26,13 +26,14 @@
 	return FALSE
 
 /turf/open/floor/fantasy_organic/attackby(obj/item/object, mob/living/user, params)
-	if(!object.tool_behaviour == TOOL_KNIFE)
+	if(object.tool_behaviour == TOOL_KNIFE)
+		if(!do_after(user, 3 SECONDS, src))
+			return
+		playsound(src, 'sound/items/poster_ripped.ogg', 50, TRUE)
+		new torn_up_result(src)
+		src.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+	else
 		return ..()
-	if(!do_after(user, 3 SECONDS, src))
-		return
-	playsound(src, 'sound/items/poster_ripped.ogg', 20, TRUE)
-	new torn_up_result(src)
-	src.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
 // Reed mats
 
