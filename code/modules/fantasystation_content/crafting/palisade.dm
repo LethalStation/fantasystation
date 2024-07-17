@@ -4,7 +4,7 @@
 	icon = 'icons/obj/fantasystation_obj/fences.dmi'
 	icon_state = "palisade"
 	item_deconstruct = /obj/item/stack/fantasy_logs
-	layer = VEHICLE_LAYER
+	layer = OBJ_LAYER - 0.02
 	climbable = FALSE
 	max_integrity = 200
 	resistance_flags = FLAMMABLE
@@ -25,7 +25,7 @@
 
 /// Adjusts the layer of the palisade based on which direction the palisade is facing
 /obj/structure/railing/fantasy_palisade/proc/adjust_dir_layer(direction)
-	layer = (direction & NORTH) ? MOB_LAYER : initial(layer)
+	layer = (direction & NORTH) ? (MOB_LAYER + 0.1) : initial(layer)
 	plane = (direction & NORTH) ? GAME_PLANE : initial(plane)
 
 /// Swamp wood edition
