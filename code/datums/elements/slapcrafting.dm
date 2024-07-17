@@ -112,6 +112,7 @@
 		to_chat(user, span_warning("crafting failed" + error_string))
 		return
 
+	user.put_in_hands(error_string)
 	actual_recipe.on_craft_completion(user, error_string)
 
 /// Alerts any examiners to the recipe, if they wish to know more.
