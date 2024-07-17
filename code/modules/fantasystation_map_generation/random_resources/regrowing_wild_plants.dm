@@ -279,7 +279,7 @@
 	icon = 'icons/obj/fantasystation_obj/plants.dmi'
 	icon_state = "hideroot"
 	base_icon_state = "hideroot"
-	harvest_icon_state = "groundnuts_growing"
+	harvest_icon_state = "hideroot_growing"
 	product_types = list(
 		/obj/item/food/fantasy_grown/hideroot = 1,
 	)
