@@ -8,7 +8,7 @@
 	/// If FALSE, this object cannot be distilled into an alcohol.
 	var/can_distill = TRUE
 	/// The reagent this plant distill to. If NULL, it uses a generic fruit_wine reagent and adjusts its variables.
-	var/distill_reagent
+	var/datum/reagent/distill_reagent
 	/// Flavor of the plant's wine if NULL distll_reagent. If NULL, this is automatically set to the fruit's flavor.
 	var/wine_flavor
 	/// Boozepwr of the wine if NULL distill_reagent
