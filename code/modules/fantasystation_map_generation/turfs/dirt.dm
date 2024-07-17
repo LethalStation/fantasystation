@@ -129,7 +129,7 @@
 
 /turf/open/misc/muck_slop
 	name = "mud"
-	desc = "Mud, or if it's not mud right now, it was or will be recently. Likely found near water."
+	desc = "Mud, or if it's not mud right now, it was recently or will be soon. Likely found near water."
 	gender = PLURAL
 
 	icon = 'icons/turf/fantasystation/mud.dmi'

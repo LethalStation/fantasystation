@@ -87,6 +87,7 @@
 	flora_types = list(
 		/obj/structure/flora/fantasy_regrowing = 4,
 		/obj/structure/flora/fantasy_tree/pet_bush/swamp/random_icon = 1,
+		/obj/structure/flora/fantasy_regrowing/groundnut = 1,
 	)
 	feature_types = list(
 		/obj/item/vintage_stick = 3,
