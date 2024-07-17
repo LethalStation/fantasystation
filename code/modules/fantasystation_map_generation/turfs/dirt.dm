@@ -191,3 +191,15 @@
 		var/matrix/translation = new
 		translation.Translate(-8, -8)
 		transform = translation
+
+/turf/open/misc/fire_clay/attack_hand(mob/user, list/modifiers)
+	. = ..()
+	balloon_alert(user, "digging")
+	if(!do_after(user, 20 SECONDS, src))
+		return
+	var/amount_of_clay = rand(2, 5)
+	for(var/iterator in 1 to amount_of_clay)
+		var/obj/new_clay = new /obj/item/fantasy_clay(src)
+		new_clay.pixel_x = rand(-10, 10)
+		new_clay.pixel_y = rand(-10, 10)
+	playsound(src, 'sound/effects/shovel_dig.ogg', 50, TRUE)

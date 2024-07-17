@@ -349,14 +349,14 @@
 /// Getting to this temperature and having no other soup reaction made means you're either messing something up
 /// or you simply aren't following a recipe. So it'll just combine
 /datum/chemical_reaction/food/soup/custom
-	required_temp = SOUP_BURN_TEMP + 40 // Only done if it's been burning for a little bit
-	optimal_temp = SOUP_BURN_TEMP + 50
-	overheat_temp = SOUP_BURN_TEMP + 60
+	required_temp = 380 // Only done if it's been burning for a little bit
+	optimal_temp = 400
+	overheat_temp = SOUP_BURN_TEMP
 	thermic_constant = 0
-	mix_message = span_warning("You smell something gross coming from the pot of soup.")
+	mix_message = span_warning("The pot boils and bubbles.")
 	required_reagents = list(/datum/reagent/water = 30)
 	results = list(/datum/reagent/water = 10)
-	ingredient_reagent_multiplier = 1
+	ingredient_reagent_multiplier = 1.5
 	percentage_of_nutriment_converted = 0
 
 	/// Custom recipes will not start mixing until at least this many solid ingredients are present

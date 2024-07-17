@@ -1,4 +1,4 @@
-// Base fantasystation organic floor types, like mats and whatnot, basetype is dried grass
+/// Base fantasystation organic floor types, like mats and whatnot, basetype is dried grass
 
 /turf/open/floor/fantasy_organic
 	name = "grass floor mat"
@@ -35,7 +35,7 @@
 	else
 		return ..()
 
-// Reed mats
+/// Reed mats
 
 /turf/open/floor/fantasy_organic/reed
 	name = "reed floor mat"
@@ -46,3 +46,35 @@
 	torn_up_result = /obj/item/fantasy_cut_cattail
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_REED_MAT
 	canSmoothWith = SGROUP_REED_MAT
+
+/// Brick floors
+
+/turf/open/floor/fantasy_brick
+	name = "ceramic brick floor"
+	desc = "A neat arrangement of bricks to make a passable floor, can be pried up with a knife."
+	icon = 'icons/obj/fantasystation_obj/floors/bricks.dmi'
+	icon_state = "claybricks"
+	footstep = FOOTSTEP_FLOOR
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	flags_1 = NONE
+	floor_tile = null
+	/// What we make when we're torn up
+	var/obj/torn_up_result = /obj/item/fantasy_cut_grass
+
+/turf/open/floor/fantasy_brick/broken_states()
+	return
+
+/turf/open/floor/fantasy_brick/crowbar_act(mob/living/user, obj/item/I)
+	return FALSE
+
+/turf/open/floor/fantasy_brick/attackby(obj/item/object, mob/living/user, params)
+	if(object.tool_behaviour == TOOL_KNIFE)
+		if(!do_after(user, 3 SECONDS, src))
+			return
+		playsound(src, SFX_ROCK_TAP, 50, TRUE)
+		new torn_up_result(src)
+		src.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
+	else
+		return ..()

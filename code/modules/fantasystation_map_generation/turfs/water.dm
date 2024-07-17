@@ -8,6 +8,14 @@
 	planetary_atmos = TRUE
 	immerse_overlay_color = "#247296"
 
+/turf/open/water/vintage/attackby(obj/item/attacking_item, mob/user, params)
+	if(!attacking_item.is_open_container())
+		return ..()
+	if(!attacking_item.reagents.add_reagent(/datum/reagent/water, rand(10, 20)))
+		to_chat(user, span_warning("[attacking_item] is full."))
+		return
+	user.visible_message(span_notice("[user] scoops some water from the [src] with [attacking_item]."), span_notice("You scoop out some water from the [src] using [attacking_item]."))
+
 /turf/open/water/vintage/deep
 	name = "deep water"
 	desc = "Water that is both much too deep and with much too strong of a current to safely pass. If you had a ship of some kind however..."

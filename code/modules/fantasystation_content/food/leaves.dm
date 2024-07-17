@@ -13,3 +13,7 @@
 	food_reagents = list(
 		/datum/reagent/consumable/nutriment = 2,
 	)
+	distill_reagent = /datum/reagent/consumable/ethanol/ratweed
+	grind_results = list(
+		/datum/reagent/medicine/omnizine = 2
+	)
