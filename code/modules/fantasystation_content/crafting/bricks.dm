@@ -5,7 +5,7 @@ GLOBAL_LIST_INIT(clay_brick_recipes, list(
 /obj/item/stack/fantasy_bricks
 	name = "ceramic bricks"
 	singular_name = "ceramic brick"
-	desc = "The trunks of trees cut into workable segments."
+	desc = "Bricks made of fired clay."
 	icon = 'icons/obj/fantasystation_obj/clay.dmi'
 	icon_state = "brick"
 	base_icon_state = "brick"

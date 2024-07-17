@@ -192,6 +192,10 @@
 		translation.Translate(-8, -8)
 		transform = translation
 
+/turf/open/misc/fire_clay/examine(mob/user)
+	. = ..()
+	. += span_notice("You can harvest some clay with your <b>hands</b>.")
+
 /turf/open/misc/fire_clay/attack_hand(mob/user, list/modifiers)
 	. = ..()
 	balloon_alert(user, "digging")

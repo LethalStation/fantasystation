@@ -17,7 +17,7 @@
 		/datum/reagent/consumable/nutriment = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
 	)
-	distill_reagent = /datum/reagent/consumable/ethanol/hideroot
+	distill_reagent = /datum/reagent/consumable/ethanol/groundnut
 	grind_results = list(
 		/datum.reagent/medicine/c2/probital = 3,
 	)
