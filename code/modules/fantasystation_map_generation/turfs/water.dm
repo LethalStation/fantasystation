@@ -2,7 +2,12 @@
 	name = "shallow water"
 	desc = "A pool of water, is it a pond? Is it a river? I don't know, you're the one looking at it, you tell me."
 	icon = 'icons/turf/fantasystation/water.dmi'
-	icon_state = "water"
+	icon_state = "water-255"
+	base_icon_state = "water"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_SHALLOW_WATER
+	canSmoothWith = SGROUP_SHALLOW_WATER + SGROUP_DEEP_WATER
+
 	baseturfs = /turf/open/water/vintage
 	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 	planetary_atmos = TRUE
@@ -19,7 +24,11 @@
 /turf/open/water/vintage/deep
 	name = "deep water"
 	desc = "Water that is both much too deep and with much too strong of a current to safely pass. If you had a ship of some kind however..."
-	icon_state = "deepwater"
+	icon = 'icons/turf/fantasystation/deep_water.dmi'
+	icon_state = "deep_water-255"
+	base_icon_state = "deep_water"
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_DEEP_WATER
+	canSmoothWith = SGROUP_DEEP_WATER
 	baseturfs = /turf/open/water/vintage/deep
 	immerse_overlay_color = "#247296"
 
@@ -53,6 +62,10 @@
 /turf/open/water/vintage/swamp
 	name = "murky water"
 	desc = "Gnarly green water that you can barely see through. It's likely there's a million different bugs and parasites in this, but you'd win, right?"
-	icon_state = "swamp"
+	icon = 'icons/turf/fantasystation/swamp_water.dmi'
+	icon_state = "swamp_water-255"
+	base_icon_state = "swamp_water"
+	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SGROUP_SWAMP_WATER
+	canSmoothWith = SGROUP_SWAMP_WATER
 	baseturfs = /turf/open/water/vintage/swamp
 	immerse_overlay_color = "#547e64"
