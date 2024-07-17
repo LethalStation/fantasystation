@@ -147,23 +147,16 @@
 /obj/structure/fantasy_storage_pot/Initialize(mapload)
 	. = ..()
 	create_storage(storage_type = storage_datum_to_use)
-	RegisterSignal(atom_storage, COMSIG_ITEM_STORED, PROC_REF(check_add_lid))
-	RegisterSignal(atom_storage, COMSIG_ITEM_UNSTORED, PROC_REF(check_remove_lid))
 	AddElement(/datum/element/can_shatter, number_of_shards = 0)
 
-/obj/structure/fantasy_storage_pot/Destroy(force)
-	UnregisterSignal(atom_storage, COMSIG_ITEM_STORED)
-	UnregisterSignal(atom_storage, COMSIG_ITEM_UNSTORED)
-	return ..()
-
-/// Checks if we should change the lid-on sprite when an item is added to the vessel
-/obj/structure/fantasy_storage_pot/proc/check_add_lid()
+/obj/structure/fantasy_storage_pot/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	. = ..()
 	if(length(contents))
 		icon_state = "[base_icon_state]_closed"
 		update_appearance()
 
-/// Checks if we should change to the lid-off sprite when an item is removed from the vessel
-/obj/structure/fantasy_storage_pot/proc/check_remove_lid()
+/obj/structure/fantasy_storage_pot/Exited(atom/movable/gone, direction)
+	. = ..()
 	if(!length(contents))
 		icon_state = base_icon_state
 		update_appearance()
@@ -179,7 +172,7 @@
 	max_specific_storage = WEIGHT_CLASS_GIGANTIC
 	max_total_storage = WEIGHT_CLASS_BULKY * 6
 	numerical_stacking = FALSE
-	rustle_sound = FALSE
+	rustle_sound = TRUE
 	screen_max_columns = 3
 	/// What sound this makes when the storage is opened
 	var/opening_sound = 'sound/fantasystation/structure/ceramic_open.wav'
@@ -192,7 +185,7 @@
 
 /// Vessel for brewing beer inside of
 
-/obj/structure/fermenting_barrel/fantasy_ceramic
+/obj/structure/fermenting_barrel_fantasy/fantasy_ceramic
 	name = "ceramic fermenting vessel"
 	desc = "A ceramic vessel made for brewing alcohols inside of. Has a plug for the tap at the base, don't lose it!"
 	icon = 'icons/obj/fantasystation_obj/clay.dmi'
@@ -202,12 +195,13 @@
 	resistance_flags = FIRE_PROOF
 	lid_open_sound = 'sound/fantasystation/structure/ceramic_open.wav'
 	lid_close_sound = 'sound/fantasystation/structure/ceramic_open.wav'
+	drag_slowdown = 1
 
-/obj/structure/fermenting_barrel/fantasy_ceramic/Initialize(mapload, vol)
+/obj/structure/fermenting_barrel_fantasy/fantasy_ceramic/Initialize(mapload, vol)
 	. = ..()
 	AddElement(/datum/element/can_shatter, number_of_shards = 0)
 
-/obj/structure/fermenting_barrel/fantasy_ceramic/update_overlays()
+/obj/structure/fermenting_barrel_fantasy/fantasy_ceramic/update_overlays()
 	. = ..()
 	if((reagents.total_volume <= 0) || !open)
 		return
