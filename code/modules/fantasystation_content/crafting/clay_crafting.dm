@@ -176,7 +176,7 @@
 	desc = "Clay shaped into the form of a large fermenting vessel, needs to be fired over a fire before use."
 	icon_state = "barrel_unfired"
 	w_class = WEIGHT_CLASS_HUGE
-	baking_result = /obj/structure/fermenting_barrel/fantasy_ceramic
+	baking_result = /obj/structure/fermenting_barrel_fantasy/fantasy_ceramic
 	minimum_firing_time = 20 MINUTES
 	maximum_firing_time = 28 MINUTES
 	slowdown = 1
