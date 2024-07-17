@@ -18,7 +18,7 @@
 	. = ..()
 	if(length(turfs_we_plant_on) && plant_to_make)
 		. += span_notice("This can be planted in:")
-		for(var/turf/plantable_turf in turfs_we_plant_on)
+		for(var/turf/plantable_turf as anything in turfs_we_plant_on)
 			. += span_notice("- [plantable_turf.name]")
 	if(distill_reagent)
 		. += span_notice("It can be brewed into [distill_reagent::name].")
@@ -28,7 +28,7 @@
 		. += span_notice("It can be juiced into [juice_typepath::name]")
 	if(length(grind_results))
 		. += span_notice("It can be ground into:")
-		for(var/datum/reagent/grind_reagent in grind_results)
+		for(var/datum/reagent/grind_reagent as anything in grind_results)
 			. += span_notice("- [grind_reagent::name]")
 
 /obj/item/food/fantasy_grown/make_germ_sensitive(mapload)
