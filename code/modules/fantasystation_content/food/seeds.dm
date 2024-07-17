@@ -16,3 +16,7 @@
 		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/nutriment/vitamin = 1,
 	)
+	can_distill = FALSE
+	grind_results = list(
+		/datum/reagent/medicine/coagulant = 2,
+	)

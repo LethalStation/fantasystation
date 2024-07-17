@@ -14,7 +14,12 @@
 		"tree nut" = 3,
 	)
 	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 1,
 		/datum/reagent/consumable/nutriment/vitamin = 2,
+	)
+	distill_reagent = /datum/reagent/consumable/ethanol/hideroot
+	grind_results = list(
+		/datum.reagent/medicine/c2/probital = 3,
 	)
 
 /obj/item/food/fantasy_grown/groundnut/make_grillable()
@@ -27,7 +32,12 @@
 	turfs_we_plant_on = list()
 	plant_to_make = null
 	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 2,
 		/datum/reagent/consumable/nutriment/vitamin = 3,
+	)
+	distill_reagent = /datum/reagent/consumable/ethanol/groundnut/cooked
+	grind_results = list(
+		/datum.reagent/medicine/c2/libital = 3,
 	)
 
 /obj/item/food/fantasy_grown/groundnut/cooked/make_grillable()
