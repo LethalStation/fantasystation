@@ -238,3 +238,26 @@
 	result = /obj/item/fantasy_clay_unfired/pestle
 	time = 5 SECONDS
 	category = CAT_TOOLS
+
+/// Bricks
+
+/obj/item/fantasy_clay_unfired/brick
+	name = "unfired clay brick"
+	desc = "Clay shaped into the form of a brick, needs to be fired over a fire before use."
+	icon_state = "brick_unfired"
+	w_class = WEIGHT_CLASS_SMALL
+	baking_result = /obj/item/stack/fantasy_bricks
+	minimum_firing_time = 10 MINUTES
+	maximum_firing_time = 14 MINUTES
+
+/// Recipe for making bricks
+
+/datum/crafting_recipe/fantasystation/clay_brick
+	name = "unfired clay brick"
+	desc = "Molding clay into the shape of a brick, which will need to be fired over a campfire before use."
+	reqs = list(
+		/obj/item/fantasy_clay = 1,
+	)
+	result = /obj/item/fantasy_clay_unfired/brick
+	time = 2 SECONDS
+	category = CAT_STRUCTURE

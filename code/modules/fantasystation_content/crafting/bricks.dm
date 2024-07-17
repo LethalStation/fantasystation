@@ -55,4 +55,4 @@ GLOBAL_LIST_INIT(clay_brick_recipes, list(
 	if(QDELETED(src))
 		return
 	mat_target.place_on_top(place_turf_type, flags = CHANGETURF_INHERIT_AIR)
-	Use(1)
+	use(1)

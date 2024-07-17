@@ -154,6 +154,7 @@
 /obj/structure/fantasy_storage_pot/Destroy(force)
 	UnregisterSignal(atom_storage, COMSIG_ITEM_STORED)
 	UnregisterSignal(atom_storage, COMSIG_ITEM_UNSTORED)
+	return ..()
 
 /// Checks if we should change the lid-on sprite when an item is added to the vessel
 /obj/structure/fantasy_storage_pot/proc/check_add_lid()
