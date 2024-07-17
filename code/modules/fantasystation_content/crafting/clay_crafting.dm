@@ -259,5 +259,5 @@
 		/obj/item/fantasy_clay = 1,
 	)
 	result = /obj/item/fantasy_clay_unfired/brick
-	time = 2 SECONDS
+	time = 0.5 SECONDS
 	category = CAT_STRUCTURE
