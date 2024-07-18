@@ -1,5 +1,5 @@
 GLOBAL_LIST_INIT(clay_brick_recipes, list(
-	new/datum/stack_recipe("wall", /turf/closed/wall/fantasystation/clay_brick, 2, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("wall", /turf/closed/wall/fantasystation/clay_brick, 2, time = 2.5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 ))
 
 /obj/item/stack/fantasy_bricks
@@ -50,7 +50,7 @@ GLOBAL_LIST_INIT(clay_brick_recipes, list(
 
 /// Places the floor mat tile on the given turf if the do_after passes
 /obj/item/stack/fantasy_bricks/proc/place_floor_mat(turf/mat_target, mob/living/user)
-	if(!do_after(user, 3 SECONDS, mat_target))
+	if(!do_after(user, 2 SECONDS, mat_target))
 		return
 	if(QDELETED(src))
 		return

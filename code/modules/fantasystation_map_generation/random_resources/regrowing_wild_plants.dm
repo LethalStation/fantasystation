@@ -108,7 +108,7 @@
 
 /// Places the floor mat tile on the given turf if the do_after passes
 /obj/item/fantasy_cut_grass/proc/place_floor_mat(turf/mat_target, mob/living/user)
-	if(!do_after(user, 3 SECONDS, mat_target))
+	if(!do_after(user, 2 SECONDS, mat_target))
 		return
 	if(QDELETED(src))
 		return
@@ -165,7 +165,7 @@
 
 /// Places the floor mat tile on the given turf if the do_after passes
 /obj/item/fantasy_cut_cattail/proc/place_floor_mat(turf/mat_target, mob/living/user)
-	if(!do_after(user, 3 SECONDS, mat_target))
+	if(!do_after(user, 2 SECONDS, mat_target))
 		return
 	if(QDELETED(src))
 		return
