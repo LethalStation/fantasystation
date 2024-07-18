@@ -14,8 +14,10 @@
 	var/who_placed_us
 	/// Reagents that should be added to the result
 	var/list/added_reagents
+	/// Do we transfer reagents from the old cooked item?
+	var/transfer_old_reagents = FALSE
 
-/datum/component/grillable/Initialize(cook_result, required_cook_time, positive_result, use_large_steam_sprite, list/added_reagents)
+/datum/component/grillable/Initialize(cook_result, required_cook_time, positive_result, use_large_steam_sprite, list/added_reagents, transfer_old_reagents)
 	. = ..()
 	if(!isitem(parent)) //Only items support grilling at the moment
 		return COMPONENT_INCOMPATIBLE
@@ -25,6 +27,7 @@
 	src.positive_result = positive_result
 	src.use_large_steam_sprite = use_large_steam_sprite
 	src.added_reagents = added_reagents
+	src.transfer_old_reagents = transfer_old_reagents
 
 /datum/component/grillable/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ITEM_GRILL_PLACED, PROC_REF(on_grill_placed))
@@ -104,8 +107,9 @@
 
 	if(IsEdible(grilled_result) && positive_result)
 		BLACKBOX_LOG_FOOD_MADE(grilled_result.type)
-		grilled_result.reagents.clear_reagents()
-		original_object.reagents?.trans_to(grilled_result, original_object.reagents.total_volume)
+		if(transfer_old_reagents)
+			grilled_result.reagents.clear_reagents()
+			original_object.reagents?.trans_to(grilled_result, original_object.reagents.total_volume)
 		if(added_reagents) // Add any new reagents that should be added
 			grilled_result.reagents.add_reagent_list(added_reagents)
 
